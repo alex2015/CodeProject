@@ -20,8 +20,8 @@ namespace CodeProject.Portal
             );
 
             routes.MapRoute(
-                name: "CustomersCatchAllRoute",
-                url: "Customers/{*.}",
+                name: "PersonsCatchAllRoute",
+                url: "Persons/{*.}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 

@@ -1,7 +1,7 @@
 ﻿
-console.log("customer inquiry");
+console.log("person inquiry");
 
-angular.module("codeProject").register.controller('customerInquiryController', ['$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
+angular.module("codeProject").register.controller('personInquiryController', ['$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
     function ($routeParams, $location, ajaxService, dataGridService, alertService) {
 
     "use strict";
@@ -10,14 +10,14 @@ angular.module("codeProject").register.controller('customerInquiryController', [
 
     this.initializeController = function () {
 
-        vm.title = "Customer Inquiry";
+        vm.title = "Person Inquiry";
 
         vm.alerts = [];
         vm.closeAlert = alertService.closeAlert;
 
         dataGridService.initializeTableHeaders();
 
-        dataGridService.addHeader("Customer Code", "CustomerCode");
+        dataGridService.addHeader("Person Code", "PersonCode");
         dataGridService.addHeader("Company Name", "CompanyName");
         dataGridService.addHeader("Contact Name", "ContactName");
         dataGridService.addHeader("City", "City");
@@ -62,7 +62,7 @@ angular.module("codeProject").register.controller('customerInquiryController', [
 
     this.executeInquiry = function () {
         var inquiry = vm.prepareSearch();
-        ajaxService.ajaxPost(inquiry, "api/CustomerService/GetCustomers", this.getCustomersOnSuccess, this.getCustomersOnError);
+        ajaxService.ajaxPost(inquiry, "api/PersonService/GetPersons", this.getPersonsOnSuccess, this.getPersonsOnError);
     }
 
     this.prepareSearch = function () {
@@ -78,13 +78,13 @@ angular.module("codeProject").register.controller('customerInquiryController', [
 
     }
 
-    this.getCustomersOnSuccess = function (response) {
-        vm.customers = response.customers;
-        vm.totalCustomers = response.totalRows;
+    this.getPersonsOnSuccess = function (response) {
+        vm.persons = response.persons;
+        vm.totalPersons = response.totalRows;
         vm.totalPages = response.totalPages;
     }
 
-    this.getCustomersOnError = function (response) {
+    this.getPersonsOnError = function (response) {
         alertService.RenderErrorMessage(response.ReturnMessage);
     }
 

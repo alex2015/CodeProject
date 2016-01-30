@@ -62,7 +62,7 @@ namespace CodeProject.Portal.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<CodeProject.Interfaces.ICustomerDataService>().To<CodeProject.Data.EntityFramework.CustomerDataService>();
+            kernel.Bind<CodeProject.Interfaces.IPersonDataService>().To<CodeProject.Data.EntityFramework.PersonDataService>();
             kernel.Bind<CodeProject.Interfaces.IProductDataService>().To<CodeProject.Data.EntityFramework.ProductDataService>();
 
         }        

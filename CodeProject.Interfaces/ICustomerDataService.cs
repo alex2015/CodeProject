@@ -8,14 +8,14 @@ using CodeProject.Business.Entities;
 namespace CodeProject.Interfaces
 {
     /// <summary>
-    /// Customer Data Service
+    /// Person Data Service
     /// </summary>
-    public interface ICustomerDataService : IDataRepository, IDisposable
+    public interface IPersonDataService : IDataRepository, IDisposable
     {
-        void CreateCustomer(Customer customer);
-        void UpdateCustomer(Customer customer);
-        Customer GetCustomer(int customerID);
-        List<Customer> GetCustomers(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out int totalRows);
+        void CreatePerson(Person person);
+        void UpdatePerson(Person person);
+        Person GetPerson(int personID);
+        List<Person> GetPersons(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out int totalRows);
         void InitializeData();
         void LoadData();  
     }

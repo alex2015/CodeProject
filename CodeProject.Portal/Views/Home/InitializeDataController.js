@@ -14,7 +14,7 @@ angular.module("codeProject").register.controller('initializeDataController', ['
 
     this.initializeData = function () {
         var inquiry = new Object();
-        ajaxService.ajaxPost(inquiry, "api/CustomerService/InitializeData", this.initializeDataOnSuccess, this.initializeDataOnError);
+        ajaxService.ajaxPost(inquiry, "api/PersonService/InitializeData", this.initializeDataOnSuccess, this.initializeDataOnError);
     }
 
     this.initializeDataOnSuccess = function () {

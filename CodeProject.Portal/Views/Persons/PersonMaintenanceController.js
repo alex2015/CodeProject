@@ -1,7 +1,7 @@
 ﻿
-console.log("customer maintenance");
+console.log("person maintenance");
 
-angular.module("codeProject").register.controller('customerMaintenanceController',
+angular.module("codeProject").register.controller('personMaintenanceController',
     ['$routeParams', '$location', 'ajaxService', 'alertService',
     function ($routeParams, $location, ajaxService, alertService) {
 
@@ -11,17 +11,17 @@ angular.module("codeProject").register.controller('customerMaintenanceController
 
     this.initializeController = function () {
 
-        vm.title = "Customer Maintenance";
+        vm.title = "Person Maintenance";
 
         vm.messageBox = "";
         vm.alerts = [];
 
-        var customerID = ($routeParams.id || "");
+        var personID = ($routeParams.id || "");
 
-        if (customerID == "")
+        if (personID == "")
         {
-            vm.customerID = "0";
-            vm.customerCode = "Micro";
+            vm.personID = "0";
+            vm.personCode = "Micro";
             vm.companyName = "Microsoft Corporation";
             vm.contactName = "William Gates";
             vm.contactTitle = "Founder & CEO";
@@ -35,10 +35,10 @@ angular.module("codeProject").register.controller('customerMaintenanceController
         }
         else
         {
-            vm.customerID = customerID;
-            var customer = new Object();
-            customer.customerID = customerID                  
-            ajaxService.ajaxPost(customer, "api/CustomerService/GetCustomer", this.getCustomerOnSuccess, this.getCustomerOnError);            
+            vm.personID = personID;
+            var person = new Object();
+            person.personID = personID                  
+            ajaxService.ajaxPost(person, "api/PersonService/GetPerson", this.getPersonOnSuccess, this.getPersonOnError);            
         }
               
     }
@@ -47,9 +47,9 @@ angular.module("codeProject").register.controller('customerMaintenanceController
         vm.alerts.splice(index, 1);
     };
 
-    this.getCustomerOnSuccess = function (response) {
+    this.getPersonOnSuccess = function (response) {
 
-        vm.customerCode = response.customerCode;
+        vm.personCode = response.personCode;
         vm.companyName = response.companyName;
         vm.contactName = response.contactName;
         vm.contactTitle = response.contactTitle;
@@ -63,46 +63,46 @@ angular.module("codeProject").register.controller('customerMaintenanceController
 
     }
         
-    this.getCustomerOnError = function (response) {
+    this.getPersonOnError = function (response) {
 
     }
 
     
-    this.saveCustomer = function () {
+    this.savePerson = function () {
 
-        var customer = new Object();
-        customer.customerID = vm.customerID
-        customer.customerCode = vm.customerCode;
-        customer.companyName = vm.companyName;
-        customer.contactName = vm.contactName;
-        customer.contactTitle = vm.contactTitle;
-        customer.address = vm.address;
-        customer.city = vm.city;
-        customer.region = vm.region;
-        customer.postalCode = vm.postalCode;
-        customer.country = vm.country;
-        customer.phoneNumber = vm.phoneNumber;
-        customer.mobileNumber = vm.mobileNumber;
+        var person = new Object();
+        person.personID = vm.personID
+        person.personCode = vm.personCode;
+        person.companyName = vm.companyName;
+        person.contactName = vm.contactName;
+        person.contactTitle = vm.contactTitle;
+        person.address = vm.address;
+        person.city = vm.city;
+        person.region = vm.region;
+        person.postalCode = vm.postalCode;
+        person.country = vm.country;
+        person.phoneNumber = vm.phoneNumber;
+        person.mobileNumber = vm.mobileNumber;
    
-        if (customer.customerID=="0") {
-            ajaxService.ajaxPost(customer, "api/CustomerService/CreateCustomer", this.createCustomerOnSuccess, this.createCustomerOnError);
+        if (person.personID=="0") {
+            ajaxService.ajaxPost(person, "api/PersonService/CreatePerson", this.createPersonOnSuccess, this.createPersonOnError);
         }
         else {
-            ajaxService.ajaxPost(customer, "api/CustomerService/UpdateCustomer", this.updateCustomerOnSuccess, this.updateCustomerOnError);
+            ajaxService.ajaxPost(person, "api/PersonService/UpdatePerson", this.updatePersonOnSuccess, this.updatePersonOnError);
         }
 
     }
 
-    this.createCustomerOnSuccess = function (response)
+    this.createPersonOnSuccess = function (response)
     {
         vm.clearValidationErrors();
         alertService.renderSuccessMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
         vm.alerts = alertService.returnAlerts();
-        vm.customerID = response.customerID;
+        vm.personID = response.personID;
     }
 
-    this.createCustomerOnError = function (response) {
+    this.createPersonOnError = function (response) {
         vm.clearValidationErrors();
         alertService.renderErrorMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
@@ -110,7 +110,7 @@ angular.module("codeProject").register.controller('customerMaintenanceController
         alertService.setValidationErrors(vm, response.validationErrors);
     }
 
-    this.updateCustomerOnSuccess = function (response)
+    this.updatePersonOnSuccess = function (response)
     {
         vm.clearValidationErrors();
         alertService.renderSuccessMessage(response.returnMessage);
@@ -118,7 +118,7 @@ angular.module("codeProject").register.controller('customerMaintenanceController
         vm.alerts = alertService.returnAlerts();
     }
 
-    this.updateCustomerOnError = function (response) {
+    this.updatePersonOnError = function (response) {
         vm.clearValidationErrors();
         alertService.renderErrorMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
@@ -127,7 +127,7 @@ angular.module("codeProject").register.controller('customerMaintenanceController
     }
 
     this.clearValidationErrors = function () {
-        vm.customerCodeInputError = false;
+        vm.personCodeInputError = false;
         vm.companyNameInputError = false;
     } 
 

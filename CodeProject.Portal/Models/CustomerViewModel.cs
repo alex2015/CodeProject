@@ -8,12 +8,12 @@ using CodeProject.Business.Entities;
 namespace CodeProject.Portal.Models
 {
     /// <summary>
-    /// Customer View Model
+    /// Person View Model
     /// </summary>
-    public class CustomerViewModel : TransactionalInformation
+    public class PersonViewModel : TransactionalInformation
     {
-        public int CustomerID { get; set; }
-        public string CustomerCode { get; set; }
+        public int PersonID { get; set; }
+        public string PersonCode { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }
@@ -25,7 +25,7 @@ namespace CodeProject.Portal.Models
         public string PhoneNumber { get; set; }
         public string MobileNumber { get; set; }
 
-        public List<Customer> Customers { get; set; }
+        public List<Person> Persons { get; set; }
 
     }
 

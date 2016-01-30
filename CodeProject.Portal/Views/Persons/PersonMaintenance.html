@@ -1,5 +1,5 @@
 ﻿
-<div ng-controller="customerMaintenanceController as vm" ng-init="vm.initializeController()">
+<div ng-controller="personMaintenanceController as vm" ng-init="vm.initializeController()">
   
     <h4 class="page-header">{{vm.title}}</h4>
 
@@ -10,10 +10,10 @@
             <form class="form-horizontal" role="form">
               
                 <div class="form-group">
-                    <label class="col-sm-2 control-label required">Customer Code</label>
+                    <label class="col-sm-2 control-label required">Person Code</label>
 
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" ng-model="vm.customerCode" ng-class="{'validation-error': vm.customerCodeInputError}">
+                        <input type="text" class="form-control" ng-model="vm.personCode" ng-class="{'validation-error': vm.personCodeInputError}">
                     </div>
                  
                     <label class="col-sm-2 control-label required">Company Name</label>
@@ -107,7 +107,7 @@
     </div>
 
 
-    <button class="btn btn-primary btn-label-left" ng-click="vm.saveCustomer()">
+    <button class="btn btn-primary btn-label-left" ng-click="vm.savePerson()">
         <span><i class="fa fa-clock-o"></i></span>
         <b>Save</b>
     </button>

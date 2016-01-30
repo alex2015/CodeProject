@@ -16,32 +16,32 @@ using System.Net.Mail;
 
 namespace CodeProject.Business
 {
-    public class CustomerBusinessService
+    public class PersonBusinessService
     {
-        private ICustomerDataService _customerDataService;
+        private IPersonDataService _personDataService;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public CustomerBusinessService(ICustomerDataService customerDataService)
+        public PersonBusinessService(IPersonDataService personDataService)
         {
-            _customerDataService = customerDataService;
+            _personDataService = personDataService;
         }
 
         /// <summary>
-        /// Create Customer
+        /// Create Person
         /// </summary>
-        /// <param name="customer"></param>
+        /// <param name="person"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public Customer CreateCustomer(Customer customer, out TransactionalInformation transaction)
+        public Person CreatePerson(Person person, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
             try
             {
-                CustomerBusinessRules customerBusinessRules = new CustomerBusinessRules();
-                ValidationResult results = customerBusinessRules.Validate(customer);
+                PersonBusinessRules personBusinessRules = new PersonBusinessRules();
+                ValidationResult results = personBusinessRules.Validate(person);
 
                 bool validationSucceeded = results.IsValid;
                 IList<ValidationFailure> failures = results.Errors;
@@ -49,16 +49,16 @@ namespace CodeProject.Business
                 if (validationSucceeded == false)
                 {
                     transaction = ValidationErrors.PopulateValidationErrors(failures);
-                    return customer;
+                    return person;
                 }
 
-                _customerDataService.CreateSession();
-                _customerDataService.BeginTransaction();
-                _customerDataService.CreateCustomer(customer);
-                _customerDataService.CommitTransaction(true);
+                _personDataService.CreateSession();
+                _personDataService.BeginTransaction();
+                _personDataService.CreatePerson(person);
+                _personDataService.CommitTransaction(true);
 
                 transaction.ReturnStatus = true;
-                transaction.ReturnMessage.Add("Customer successfully created.");
+                transaction.ReturnMessage.Add("Person successfully created.");
 
             }
             catch (Exception ex)
@@ -69,28 +69,28 @@ namespace CodeProject.Business
             }
             finally
             {
-                _customerDataService.CloseSession();
+                _personDataService.CloseSession();
             }
 
-            return customer;
+            return person;
 
 
         }
 
         /// <summary>
-        /// Update Customer
+        /// Update Person
         /// </summary>
-        /// <param name="customer"></param>
+        /// <param name="person"></param>
         /// <param name="transaction"></param>
-        public void UpdateCustomer(Customer customer, out TransactionalInformation transaction)
+        public void UpdatePerson(Person person, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
             try
             {
 
-                CustomerBusinessRules customerBusinessRules = new CustomerBusinessRules();
-                ValidationResult results = customerBusinessRules.Validate(customer);
+                PersonBusinessRules personBusinessRules = new PersonBusinessRules();
+                ValidationResult results = personBusinessRules.Validate(person);
 
                 bool validationSucceeded = results.IsValid;
                 IList<ValidationFailure> failures = results.Errors;
@@ -101,28 +101,28 @@ namespace CodeProject.Business
                     return;
                 }
 
-                _customerDataService.CreateSession();
-                _customerDataService.BeginTransaction();
+                _personDataService.CreateSession();
+                _personDataService.BeginTransaction();
 
-                Customer existingCustomer = _customerDataService.GetCustomer(customer.CustomerID);
+                Person existingPerson = _personDataService.GetPerson(person.PersonID);
 
-                existingCustomer.CustomerCode = customer.CustomerCode;
-                existingCustomer.CompanyName = customer.CompanyName;
-                existingCustomer.ContactName = customer.ContactName;
-                existingCustomer.ContactTitle = customer.ContactTitle;
-                existingCustomer.Address = customer.Address;
-                existingCustomer.City = customer.City;
-                existingCustomer.Region = customer.Region;
-                existingCustomer.PostalCode = customer.PostalCode;
-                existingCustomer.Country = customer.Country;
-                existingCustomer.MobileNumber = customer.MobileNumber;
-                existingCustomer.PhoneNumber = customer.PhoneNumber;
+                existingPerson.PersonCode = person.PersonCode;
+                existingPerson.CompanyName = person.CompanyName;
+                existingPerson.ContactName = person.ContactName;
+                existingPerson.ContactTitle = person.ContactTitle;
+                existingPerson.Address = person.Address;
+                existingPerson.City = person.City;
+                existingPerson.Region = person.Region;
+                existingPerson.PostalCode = person.PostalCode;
+                existingPerson.Country = person.Country;
+                existingPerson.MobileNumber = person.MobileNumber;
+                existingPerson.PhoneNumber = person.PhoneNumber;
 
-                _customerDataService.UpdateCustomer(customer);
-                _customerDataService.CommitTransaction(true);
+                _personDataService.UpdatePerson(person);
+                _personDataService.CommitTransaction(true);
 
                 transaction.ReturnStatus = true;
-                transaction.ReturnMessage.Add("Customer was successfully updated.");
+                transaction.ReturnMessage.Add("Person was successfully updated.");
 
             }
             catch (Exception ex)
@@ -133,14 +133,14 @@ namespace CodeProject.Business
             }
             finally
             {
-                _customerDataService.CloseSession();
+                _personDataService.CloseSession();
             }
 
 
         }
 
         /// <summary>
-        /// Get Customers
+        /// Get Persons
         /// </summary>
         /// <param name="currentPageNumber"></param>
         /// <param name="pageSize"></param>
@@ -148,19 +148,19 @@ namespace CodeProject.Business
         /// <param name="sortDirection"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public List<Customer> GetCustomers(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out TransactionalInformation transaction)
+        public List<Person> GetPersons(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
-            List<Customer> customers = new List<Customer>();
+            List<Person> persons = new List<Person>();
 
             try
             {
                 int totalRows;
 
-                _customerDataService.CreateSession();
-                customers = _customerDataService.GetCustomers(currentPageNumber, pageSize, sortExpression, sortDirection, out totalRows);
-                _customerDataService.CloseSession();
+                _personDataService.CreateSession();
+                persons = _personDataService.GetPersons(currentPageNumber, pageSize, sortExpression, sortDirection, out totalRows);
+                _personDataService.CloseSession();
 
                 transaction.TotalPages = CodeProject.Business.Common.Utilities.CalculateTotalPages(totalRows, pageSize);
                 transaction.TotalRows = totalRows;
@@ -176,31 +176,31 @@ namespace CodeProject.Business
             }
             finally
             {
-                _customerDataService.CloseSession();
+                _personDataService.CloseSession();
             }
 
-            return customers;
+            return persons;
 
         }
 
         /// <summary>
-        /// Get Customer
+        /// Get Person
         /// </summary>
-        /// <param name="customerID"></param>
+        /// <param name="personID"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public Customer GetCustomer(int customerID, out TransactionalInformation transaction)
+        public Person GetPerson(int personID, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
-            Customer customer = new Customer();
+            Person person = new Person();
 
             try
             {
 
-                _customerDataService.CreateSession();
-                customer = _customerDataService.GetCustomer(customerID);
-                _customerDataService.CloseSession();      
+                _personDataService.CreateSession();
+                person = _personDataService.GetPerson(personID);
+                _personDataService.CloseSession();      
                 transaction.ReturnStatus = true;
 
             }
@@ -212,10 +212,10 @@ namespace CodeProject.Business
             }
             finally
             {
-                _customerDataService.CloseSession();
+                _personDataService.CloseSession();
             }
 
-            return customer;
+            return person;
 
         }
 
@@ -227,22 +227,22 @@ namespace CodeProject.Business
         {
             transaction = new TransactionalInformation();
 
-            Customer customer = new Customer();
+            Person person = new Person();
 
             try
             {
 
-                _customerDataService.CreateSession();
-                _customerDataService.BeginTransaction();
-                _customerDataService.InitializeData();
-                _customerDataService.CommitTransaction(true);
-                _customerDataService.CloseSession();
+                _personDataService.CreateSession();
+                _personDataService.BeginTransaction();
+                _personDataService.InitializeData();
+                _personDataService.CommitTransaction(true);
+                _personDataService.CloseSession();
 
-                _customerDataService.CreateSession();
-                _customerDataService.BeginTransaction();
-                _customerDataService.LoadData();
-                _customerDataService.CommitTransaction(true);
-                _customerDataService.CloseSession();
+                _personDataService.CreateSession();
+                _personDataService.BeginTransaction();
+                _personDataService.LoadData();
+                _personDataService.CommitTransaction(true);
+                _personDataService.CloseSession();
 
                 transaction.ReturnStatus = true;
 
@@ -255,7 +255,7 @@ namespace CodeProject.Business
             }
             finally
             {
-                _customerDataService.CloseSession();
+                _personDataService.CloseSession();
             }           
 
         }

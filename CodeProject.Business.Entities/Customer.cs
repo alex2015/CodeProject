@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CodeProject.Business.Entities
 {
-    public class Customer
+    public class Person
     {
-        public int CustomerID { get; set; }
-        public string CustomerCode { get; set; }
+        public int PersonID { get; set; }
+        public string PersonCode { get; set; }
 	    public string CompanyName { get; set; }
 	    public string ContactName { get; set; }
 	    public string ContactTitle { get; set; }

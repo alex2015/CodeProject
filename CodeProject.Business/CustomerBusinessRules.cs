@@ -10,13 +10,13 @@ using CodeProject.Interfaces;
 
 namespace CodeProject.Business
 {
-    public class CustomerBusinessRules : AbstractValidator<Customer>
+    public class PersonBusinessRules : AbstractValidator<Person>
     {
       
-        public CustomerBusinessRules()
+        public PersonBusinessRules()
         {          
             RuleFor(c => c.CompanyName).NotEmpty().WithMessage("Company Name is required.");
-            RuleFor(c => c.CustomerCode).NotEmpty().WithMessage("Customer Code is required.");      
+            RuleFor(c => c.PersonCode).NotEmpty().WithMessage("Person Code is required.");      
         }
 
     }

@@ -66,9 +66,9 @@ namespace CodeProject.Portal
          ));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/customers").Include(
-              "~/Views/Customers/CustomerMaintenanceController.js",
-              "~/Views/Customers/CustomerInquiryController.js"
+            bundles.Add(new ScriptBundle("~/bundles/persons").Include(
+              "~/Views/Persons/PersonMaintenanceController.js",
+              "~/Views/Persons/PersonInquiryController.js"
             ));
 
 

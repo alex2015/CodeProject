@@ -14,7 +14,7 @@ namespace CodeProject.Data.EntityFramework
     public class CodeProjectDatabase : DbContext
     {
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Person> Persons { get; set; }
         public DbSet<Product> Products { get; set; }
       
         /// <summary>
@@ -25,7 +25,7 @@ namespace CodeProject.Data.EntityFramework
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Customer>().ToTable("dbo.Customers");
+            modelBuilder.Entity<Person>().ToTable("dbo.Persons");
             modelBuilder.Entity<Product>().ToTable("dbo.Products");
          
 
