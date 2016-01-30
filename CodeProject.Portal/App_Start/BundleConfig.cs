@@ -67,16 +67,6 @@ namespace CodeProject.Portal
 
 
             bundles.Add(new ScriptBundle("~/bundles/customers").Include(
-              "~/Views/Customers/CustomerDummyController01.js",
-              "~/Views/Customers/CustomerDummyController02.js",
-              "~/Views/Customers/CustomerDummyController03.js",
-              "~/Views/Customers/CustomerDummyController04.js",
-              "~/Views/Customers/CustomerDummyController05.js",
-              "~/Views/Customers/CustomerDummyController06.js",
-              "~/Views/Customers/CustomerDummyController07.js",
-              "~/Views/Customers/CustomerDummyController08.js",
-              "~/Views/Customers/CustomerDummyController09.js",
-              "~/Views/Customers/CustomerDummyController10.js",
               "~/Views/Customers/CustomerMaintenanceController.js",
               "~/Views/Customers/CustomerInquiryController.js"
             ));
