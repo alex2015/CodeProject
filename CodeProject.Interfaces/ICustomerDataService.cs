@@ -14,6 +14,7 @@ namespace CodeProject.Interfaces
     {
         void CreatePerson(Person person);
         void UpdatePerson(Person person);
+        void DeletePerson(Person person);
         Person GetPerson(int personID);
         List<Person> GetPersons(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out int totalRows);
         void InitializeData();

@@ -67,6 +67,11 @@ namespace CodeProject.Data.EntityFramework
             return persons;
         }
 
+        public void DeletePerson(Person person)
+        {
+            dbConnection.Persons.Remove(person);
+        }
+
         /// <summary>
         /// Initialize Data
         /// </summary>

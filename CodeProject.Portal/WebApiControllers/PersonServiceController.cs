@@ -199,6 +199,39 @@ namespace CodeProject.Portal.WebApiControllers
         }
 
         /// <summary>
+        /// Delete Person
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="personViewModel"></param>
+        /// <returns></returns>
+        [Route("DeletePerson")]
+        [HttpPost]
+        public HttpResponseMessage DeletePerson(HttpRequestMessage request, [FromBody] PersonViewModel personViewModel)
+        {
+            TransactionalInformation transaction;
+
+            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+
+            personBusinessService.DeletePerson(personViewModel.PersonID, out transaction);
+
+            if (transaction.ReturnStatus == false)
+            {
+                personViewModel.ReturnStatus = false;
+                personViewModel.ReturnMessage = transaction.ReturnMessage;
+                personViewModel.ValidationErrors = transaction.ValidationErrors;
+
+                var responseError = Request.CreateResponse<PersonViewModel>(HttpStatusCode.BadRequest, personViewModel);
+                return responseError;
+            }
+
+            personViewModel.ReturnStatus = true;
+            personViewModel.ReturnMessage = transaction.ReturnMessage;
+
+            var response = Request.CreateResponse<PersonViewModel>(HttpStatusCode.OK, personViewModel);
+            return response;
+        }
+
+        /// <summary>
         /// Initialize Data
         /// </summary>
         /// <param name="request"></param>

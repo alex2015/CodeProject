@@ -22,6 +22,7 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
         dataGridService.addHeader("Contact Name", "ContactName");
         dataGridService.addHeader("City", "City");
         dataGridService.addHeader("Region", "Region");
+        dataGridService.addHeader("Delete", "Delete");
 
         vm.tableHeaders = dataGridService.setTableHeaders();
         vm.defaultSort = dataGridService.setDefaultSort("Company Name");
@@ -88,5 +89,24 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
         alertService.RenderErrorMessage(response.ReturnMessage);
     }
 
+    this.deletePerson = function (personID) {
+        var inquiry = new Object();
+        inquiry.personID = personID;
+        ajaxService.ajaxPost(inquiry, "api/PersonService/DeletePerson", this.deletePersonOnSuccess, this.deletePersonOnError);
+    }
 
+    this.deletePersonOnSuccess = function (response) {
+        vm.clearValidationErrors();
+        alertService.renderSuccessMessage(response.returnMessage);
+        vm.messageBox = alertService.returnFormattedMessage();
+        vm.alerts = alertService.returnAlerts();
+    }
+
+    this.deletePersonOnError = function (response) {
+        vm.clearValidationErrors();
+        alertService.renderErrorMessage(response.returnMessage);
+        vm.messageBox = alertService.returnFormattedMessage();
+        vm.alerts = alertService.returnAlerts();
+        alertService.setValidationErrors(vm, response.validationErrors);
+    }
 }]);

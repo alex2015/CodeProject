@@ -220,6 +220,39 @@ namespace CodeProject.Business
         }
 
         /// <summary>
+        /// Delete Person
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <param name="transaction"></param>
+        /// <returns></returns>
+        public void DeletePerson(int personID, out TransactionalInformation transaction)
+        {
+            transaction = new TransactionalInformation();
+
+            try
+            {
+                _personDataService.CreateSession();
+                _personDataService.BeginTransaction();
+                
+                _personDataService.DeletePerson(_personDataService.GetPerson(personID));
+                _personDataService.CommitTransaction(true);
+
+                transaction.ReturnStatus = true;
+                transaction.ReturnMessage.Add("Person was successfully deleted.");
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                transaction.ReturnMessage.Add(errorMessage);
+                transaction.ReturnStatus = false;
+            }
+            finally
+            {
+                _personDataService.CloseSession();
+            }
+        }
+
+        /// <summary>
         /// Initialize Data
         /// </summary>
         /// <param name="transaction"></param>
