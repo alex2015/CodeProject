@@ -96,17 +96,15 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
     }
 
     this.deletePersonOnSuccess = function (response) {
-        vm.clearValidationErrors();
         alertService.renderSuccessMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
         vm.alerts = alertService.returnAlerts();
+        vm.executeInquiry();
     }
 
     this.deletePersonOnError = function (response) {
-        vm.clearValidationErrors();
         alertService.renderErrorMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
         vm.alerts = alertService.returnAlerts();
-        alertService.setValidationErrors(vm, response.validationErrors);
     }
 }]);
