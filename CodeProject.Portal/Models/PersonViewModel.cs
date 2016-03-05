@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CodeProject.Business.Entities;
 
 namespace CodeProject.Portal.Models
@@ -24,6 +20,8 @@ namespace CodeProject.Portal.Models
         public string Country { get; set; }
         public string PhoneNumber { get; set; }
         public string MobileNumber { get; set; }
+        public byte[] Image { get; set; }
+        public string ImageUrl { get; set; }
 
         public List<Person> Persons { get; set; }
 

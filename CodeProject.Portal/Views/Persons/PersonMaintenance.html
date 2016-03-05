@@ -7,7 +7,7 @@
       
         <div class="box-content">
 
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" id="personForm">
               
                 <div class="form-group">
                     <label class="col-sm-2 control-label required">Person Code</label>
@@ -95,10 +95,26 @@
                     <label class="col-sm-2 control-label">Mobile Phone</label>
 
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" ng-model="vm.mobileNumber" >
+                        <input type="text" class="form-control" ng-model="vm.mobileNumber">
                     </div>
-                
-                </div>            
+
+                </div>
+
+
+
+
+                <img ng-src="{{vm.imageUrl}}" />
+
+
+
+                <input type="file" ngf-select ng-model="vm.picFile" name="file" accept="image/jpeg" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                <!--<input type="file" ngf-select ng-model="vm.picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">-->
+                <!--<i ng-show="personForm.file.$error.required">*required</i><br>
+                <i ng-show="personForm.file.$error.maxSize">
+                    File too large
+                    {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
+                </i>-->
+                <!--<img ng-show="personForm.file.$valid" ngf-thumbnail="vm.picFile" class="thumb"> <button ng-click="vm.picFile = null" ng-show="vm.picFile">Remove</button>-->
 
             </form>
 

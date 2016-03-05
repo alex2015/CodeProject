@@ -41,6 +41,10 @@ namespace CodeProject.Portal
                "~/Scripts/angular-block-ui.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/ng-file-upload").Include(
+                "~/Scripts/ng-file-upload.min.js"
+            ));
+
 
             bundles.Add(new ScriptBundle("~/bundles/shared").Include(
                "~/Views/Shared/CodeProjectBootstrap.js",

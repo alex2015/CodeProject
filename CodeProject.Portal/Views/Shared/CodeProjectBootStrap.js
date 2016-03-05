@@ -7,7 +7,7 @@ console.log("Code Project Bootstrap");
 
 (function () {
 
-    var app = angular.module('codeProject', ['ngRoute', 'ui.bootstrap', 'ngSanitize', 'blockUI']);
+    var app = angular.module('codeProject', ['ngRoute', 'ui.bootstrap', 'ngSanitize', 'blockUI', 'ngFileUpload' ]);
 
     app.config(['$controllerProvider', '$provide', function ($controllerProvider, $provide) {
         app.register =

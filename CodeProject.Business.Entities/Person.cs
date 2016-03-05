@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeProject.Business.Entities
+﻿namespace CodeProject.Business.Entities
 {
     public class Person
     {
@@ -20,6 +14,7 @@ namespace CodeProject.Business.Entities
 	    public string Country { get; set; }
 	    public string PhoneNumber { get; set; }
         public string MobileNumber { get; set; }
+        public byte[] Image { get; set; }
 
     }
 }

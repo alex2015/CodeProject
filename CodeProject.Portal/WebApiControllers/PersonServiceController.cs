@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -19,12 +18,6 @@ namespace CodeProject.Portal.WebApiControllers
         [Inject]
         public IPersonDataService _personDataService { get; set; }
 
-        /// <summary>
-        /// Create Person
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="personViewModel"></param>
-        /// <returns></returns>
         [Route("CreatePerson")]     
         [HttpPost]
         public HttpResponseMessage CreatePerson(HttpRequestMessage request, [FromBody] PersonViewModel personViewModel)
@@ -43,6 +36,11 @@ namespace CodeProject.Portal.WebApiControllers
             person.Country = personViewModel.Country;
             person.PhoneNumber = personViewModel.PhoneNumber;
             person.MobileNumber = personViewModel.MobileNumber;
+
+            if (personViewModel.ImageUrl != null)
+            {
+                person.Image = Convert.FromBase64String(personViewModel.ImageUrl.Replace("data:image/jpeg;base64,", ""));
+            }
 
             PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
             personBusinessService.CreatePerson(person, out transaction);
@@ -86,6 +84,11 @@ namespace CodeProject.Portal.WebApiControllers
             person.PhoneNumber = personViewModel.PhoneNumber;
             person.MobileNumber = personViewModel.MobileNumber;
 
+            if (personViewModel.ImageUrl != null)
+            {
+                person.Image = Convert.FromBase64String(personViewModel.ImageUrl.Replace("data:image/jpeg;base64,", ""));
+            }
+
             PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
             personBusinessService.UpdatePerson(person, out transaction);
             if (transaction.ReturnStatus == false)
@@ -107,12 +110,6 @@ namespace CodeProject.Portal.WebApiControllers
 
         }
 
-        /// <summary>
-        /// Get Persons
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="personViewModel"></param>
-        /// <returns></returns>
         [Route("GetPersons")]
         [HttpPost]
         public HttpResponseMessage GetPersons(HttpRequestMessage request, [FromBody] PersonViewModel personViewModel)
@@ -149,12 +146,6 @@ namespace CodeProject.Portal.WebApiControllers
 
         }
 
-        /// <summary>
-        /// Get Person
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="personViewModel"></param>
-        /// <returns></returns>
         [Route("GetPerson")]
         [HttpPost]
         public HttpResponseMessage GetPerson(HttpRequestMessage request, [FromBody] PersonViewModel personViewModel)
@@ -190,6 +181,11 @@ namespace CodeProject.Portal.WebApiControllers
             personViewModel.PhoneNumber = person.PhoneNumber;
             personViewModel.MobileNumber = person.MobileNumber;
 
+            if (person.Image != null)
+            {
+                personViewModel.ImageUrl = string.Format("data:image/jpeg;base64,{0}", Convert.ToBase64String(person.Image));
+            }
+
             personViewModel.ReturnStatus = true;
             personViewModel.ReturnMessage = transaction.ReturnMessage;
 
@@ -198,12 +194,6 @@ namespace CodeProject.Portal.WebApiControllers
 
         }
 
-        /// <summary>
-        /// Delete Person
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="personViewModel"></param>
-        /// <returns></returns>
         [Route("DeletePerson")]
         [HttpPost]
         public HttpResponseMessage DeletePerson(HttpRequestMessage request, [FromBody] PersonViewModel personViewModel)
@@ -231,11 +221,6 @@ namespace CodeProject.Portal.WebApiControllers
             return response;
         }
 
-        /// <summary>
-        /// Initialize Data
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         [Route("InitializeData")]
         [HttpPost]
         public HttpResponseMessage InitializeData(HttpRequestMessage request)

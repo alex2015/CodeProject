@@ -115,8 +115,9 @@ namespace CodeProject.Business
                 existingPerson.Region = person.Region;
                 existingPerson.PostalCode = person.PostalCode;
                 existingPerson.Country = person.Country;
-                existingPerson.MobileNumber = person.MobileNumber;
                 existingPerson.PhoneNumber = person.PhoneNumber;
+                existingPerson.MobileNumber = person.MobileNumber;
+                existingPerson.Image = person.Image;
 
                 _personDataService.UpdatePerson(person);
                 _personDataService.CommitTransaction(true);
