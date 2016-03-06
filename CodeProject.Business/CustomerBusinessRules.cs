@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using CodeProject.Business.Entities;
-using System.Configuration;
-using CodeProject.Interfaces;
 
 namespace CodeProject.Business
 {
@@ -14,9 +7,9 @@ namespace CodeProject.Business
     {
       
         public PersonBusinessRules()
-        {          
+        {
+            RuleFor(c => c.ContactName).NotEmpty().WithMessage("ContactName is required.");      
             RuleFor(c => c.CompanyName).NotEmpty().WithMessage("Company Name is required.");
-            RuleFor(c => c.PersonCode).NotEmpty().WithMessage("Person Code is required.");      
         }
 
     }

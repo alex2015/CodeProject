@@ -19,7 +19,6 @@ angular.module("codeProject").register.controller('personMaintenanceController',
 
             if (personID == "") {
                 vm.personID = "0";
-                vm.personCode = "Micro";
                 vm.companyName = "Microsoft Corporation";
                 vm.contactName = "William Gates";
                 vm.contactTitle = "Founder & CEO";
@@ -33,7 +32,7 @@ angular.module("codeProject").register.controller('personMaintenanceController',
             } else {
                 vm.personID = personID;
                 var person = new Object();
-                person.personID = personID
+                person.personID = personID;
                 ajaxService.ajaxPost(person, "api/PersonService/GetPerson", this.getPersonOnSuccess, this.getPersonOnError);
             }
 
@@ -45,7 +44,7 @@ angular.module("codeProject").register.controller('personMaintenanceController',
 
         this.getPersonOnSuccess = function(response) {
 
-            vm.personCode = response.personCode;
+            vm.personID = response.personID;
             vm.companyName = response.companyName;
             vm.contactName = response.contactName;
             vm.contactTitle = response.contactTitle;
@@ -68,7 +67,6 @@ angular.module("codeProject").register.controller('personMaintenanceController',
 
             var person = new Object();
             person.personID = vm.personID;
-            person.personCode = vm.personCode;
             person.companyName = vm.companyName;
             person.contactName = vm.contactName;
             person.contactTitle = vm.contactTitle;
@@ -125,7 +123,7 @@ angular.module("codeProject").register.controller('personMaintenanceController',
         }
 
         this.clearValidationErrors = function() {
-            vm.personCodeInputError = false;
+            vm.contactNameInputError = false;
             vm.companyNameInputError = false;
         }
     }

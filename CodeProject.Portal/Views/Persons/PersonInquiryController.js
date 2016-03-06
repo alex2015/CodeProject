@@ -17,7 +17,8 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
 
         dataGridService.initializeTableHeaders();
 
-        dataGridService.addHeader("Person Code", "PersonCode");
+
+        dataGridService.addHeader("Person ID", "PersonID");
         dataGridService.addHeader("Company Name", "CompanyName");
         dataGridService.addHeader("Contact Name", "ContactName");
         dataGridService.addHeader("City", "City");
@@ -25,11 +26,11 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
         dataGridService.addHeader("Delete", "Delete");
 
         vm.tableHeaders = dataGridService.setTableHeaders();
-        vm.defaultSort = dataGridService.setDefaultSort("Company Name");
+        vm.defaultSort = dataGridService.setDefaultSort("Person ID", true);
 
         vm.currentPageNumber = 1;
-        vm.sortExpression = "CompanyName";
-        vm.sortDirection = "ASC";
+        vm.sortExpression = "PersonID";
+        vm.sortDirection = "DESC";
         vm.pageSize = 15;
       
         this.executeInquiry();

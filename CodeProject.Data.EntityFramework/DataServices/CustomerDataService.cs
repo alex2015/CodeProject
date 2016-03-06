@@ -297,7 +297,6 @@ namespace CodeProject.Data.EntityFramework
             foreach (string personInsertStatement in personInsertStatements)
             {
                 string[] fields = personInsertStatement.Split(',');
-                string personCode = fields[0].Replace("'", "");
                 string companyName = fields[1].Replace("'", "");
                 string contactName = fields[2].Replace("'", "");
                 string contactTitle = fields[3].Replace("'", "");
@@ -309,7 +308,6 @@ namespace CodeProject.Data.EntityFramework
                 string phoneNumber = fields[9].Replace("'", "");
                 string mobileNumber = fields[10].Replace("'", "");
 
-                if (personCode == "NULL") personCode = "";
                 if (companyName == "NULL") companyName = "";
                 if (contactName == "NULL") contactName = "";
                 if (contactTitle == "NULL") contactTitle = "";
@@ -339,7 +337,6 @@ namespace CodeProject.Data.EntityFramework
                 person.ContactName = contactName;
                 person.ContactTitle = contactTitle;
                 person.Country = country;
-                person.PersonCode = personCode;
 
                 persons.Add(person);
 

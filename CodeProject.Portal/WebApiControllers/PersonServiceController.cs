@@ -28,7 +28,6 @@ namespace CodeProject.Portal.WebApiControllers
             person.CompanyName = personViewModel.CompanyName;
             person.ContactName = personViewModel.ContactName;
             person.ContactTitle = personViewModel.ContactTitle;
-            person.PersonCode = personViewModel.PersonCode;
             person.Address = personViewModel.Address;
             person.City = personViewModel.City;
             person.Region = personViewModel.Region;
@@ -75,7 +74,6 @@ namespace CodeProject.Portal.WebApiControllers
             person.CompanyName = personViewModel.CompanyName;
             person.ContactName = personViewModel.ContactName;
             person.ContactTitle = personViewModel.ContactTitle;
-            person.PersonCode = personViewModel.PersonCode;
             person.Address = personViewModel.Address;
             person.City = personViewModel.City;
             person.Region = personViewModel.Region;
@@ -172,7 +170,6 @@ namespace CodeProject.Portal.WebApiControllers
             personViewModel.CompanyName = person.CompanyName;
             personViewModel.ContactName = person.ContactName;
             personViewModel.ContactTitle = person.ContactTitle;
-            personViewModel.PersonCode = person.PersonCode;
             personViewModel.Address = person.Address;
             personViewModel.City = person.City;
             personViewModel.Region = person.Region;

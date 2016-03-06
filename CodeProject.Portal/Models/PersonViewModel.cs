@@ -3,13 +3,9 @@ using CodeProject.Business.Entities;
 
 namespace CodeProject.Portal.Models
 {
-    /// <summary>
-    /// Person View Model
-    /// </summary>
     public class PersonViewModel : TransactionalInformation
     {
         public int PersonID { get; set; }
-        public string PersonCode { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }

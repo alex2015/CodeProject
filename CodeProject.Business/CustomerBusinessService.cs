@@ -106,7 +106,6 @@ namespace CodeProject.Business
 
                 Person existingPerson = _personDataService.GetPerson(person.PersonID);
 
-                existingPerson.PersonCode = person.PersonCode;
                 existingPerson.CompanyName = person.CompanyName;
                 existingPerson.ContactName = person.ContactName;
                 existingPerson.ContactTitle = person.ContactTitle;

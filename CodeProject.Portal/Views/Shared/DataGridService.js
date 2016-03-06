@@ -1,5 +1,4 @@
-﻿//alert("data grid service")
-console.log("data grid service");
+﻿console.log("data grid service");
 
 angular.module('codeProject').service('dataGridService', [function () {
 
@@ -68,10 +67,10 @@ angular.module('codeProject').service('dataGridService', [function () {
         return dataGrid.sortExpression;
     };
 
-    this.setDefaultSort = function (defaultSort) {
+    this.setDefaultSort = function (defaultSort, descending) {
         var sort = {
             column: defaultSort,
-            descending: false
+            descending: descending
         }
         return sort;
     };
