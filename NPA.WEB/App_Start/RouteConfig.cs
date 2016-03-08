@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace CodeProject.Portal
+namespace NPA.WEB
 {
     public class RouteConfig
     {

@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CodeProject.Portal.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CodeProject.Portal.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NPA.WEB.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NPA.WEB.App_Start.NinjectWebCommon), "Stop")]
 
-namespace CodeProject.Portal.App_Start
+namespace NPA.WEB.App_Start
 {
     using System;
     using System.Web;

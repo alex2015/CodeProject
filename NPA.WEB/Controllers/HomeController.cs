@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CodeProject.Portal.Controllers
+namespace NPA.WEB.Controllers
 {
     public class HomeController : Controller
     {

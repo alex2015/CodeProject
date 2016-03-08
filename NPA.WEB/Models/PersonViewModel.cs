@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CodeProject.Business.Entities;
 
-namespace CodeProject.Portal.Models
+namespace NPA.WEB.Models
 {
     public class PersonViewModel : TransactionalInformation
     {

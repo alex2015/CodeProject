@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace CodeProject.Portal
+namespace NPA.WEB
 {
     public class BundleConfig
     {

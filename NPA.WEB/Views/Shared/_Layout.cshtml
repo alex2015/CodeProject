@@ -1,12 +1,12 @@
-﻿@using CodeProject.Portal.Models
+﻿@using NPA.WEB.Models
 @{
 
-    var version = typeof(CodeProject.Portal.MvcApplication).Assembly.GetName().Version.ToString();
+    var version = typeof(NPA.WEB.MvcApplication).Assembly.GetName().Version.ToString();
     string baseUrl = System.Configuration.ConfigurationManager.AppSettings["BaseUrl"].ToString();
 
     List<CustomBundle> bundles = new List<CustomBundle>();
 
-    CodeProject.Portal.Models.CustomBundle customBundle;
+    NPA.WEB.Models.CustomBundle customBundle;
 
     List<string> codeProjectBundles = new List<string>();
     codeProjectBundles.Add("home");
@@ -15,7 +15,7 @@
 
     foreach (string controller in codeProjectBundles)
     {
-        customBundle = new CodeProject.Portal.Models.CustomBundle();
+        customBundle = new NPA.WEB.Models.CustomBundle();
         customBundle.BundleName = controller;
         customBundle.Path = BundleTable.Bundles.ResolveBundleUrl("~/bundles/" + controller);
         customBundle.IsLoaded = false;

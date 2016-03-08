@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 
-namespace CodeProject.Portal
+namespace NPA.WEB
 {
     public static class WebApiConfig
     {

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using CodeProject.Portal.Models;
+using NPA.WEB.Models;
 using CodeProject.Business.Entities;
 using CodeProject.Business;
 using CodeProject.Interfaces;
 using Ninject;
 
-namespace CodeProject.Portal.WebApiControllers
+namespace NPA.WEB.WebApiControllers
 {
     [RoutePrefix("api/ProductService")]
     public class ProductServiceController : ApiController

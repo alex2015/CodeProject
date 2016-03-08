@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CodeProject.Business.Entities;
 using System.Collections.Generic;
 
-namespace CodeProject.Portal.Models
+namespace NPA.WEB.Models
 {
     /// <summary>
     /// Prodct View Model
