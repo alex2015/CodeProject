@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 
-namespace CodeProject.Interfaces
+namespace NPA.Interfaces
 {
     public interface IPersonDataService : IDataRepository, IDisposable
     {

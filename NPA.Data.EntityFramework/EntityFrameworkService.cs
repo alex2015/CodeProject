@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CodeProject.Interfaces;
+using NPA.Interfaces;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 
-namespace CodeProject.Data.EntityFramework
+namespace NPA.Data.EntityFramework
 {
    
 

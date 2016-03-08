@@ -7,8 +7,8 @@
     <ProjectGuid>{257F02CC-6DC4-4D11-9E32-53B5FE8DD1C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeProject.Data.EntityFramework</RootNamespace>
-    <AssemblyName>CodeProject.Data.EntityFramework</AssemblyName>
+    <RootNamespace>NPA.Data.EntityFramework</RootNamespace>
+    <AssemblyName>NPA.Data.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

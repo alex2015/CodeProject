@@ -62,8 +62,8 @@ namespace NPA.WEB.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<CodeProject.Interfaces.IPersonDataService>().To<CodeProject.Data.EntityFramework.PersonDataService>();
-            kernel.Bind<CodeProject.Interfaces.IProductDataService>().To<CodeProject.Data.EntityFramework.ProductDataService>();
+            kernel.Bind<NPA.Interfaces.IPersonDataService>().To<NPA.Data.EntityFramework.PersonDataService>();
+            kernel.Bind<NPA.Interfaces.IProductDataService>().To<NPA.Data.EntityFramework.ProductDataService>();
 
         }        
     }

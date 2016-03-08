@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeProject.Business.Entities
+namespace NPA.Business.Entities
 {
     public class Product
     {

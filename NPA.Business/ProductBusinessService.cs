@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CodeProject.Business.Entities;
-using CodeProject.Interfaces;
-using CodeProject.Business.Common;
+using NPA.Business.Entities;
+using NPA.Interfaces;
+using NPA.Business.Common;
 
 using FluentValidation;
 using FluentValidation.Results;
@@ -14,7 +14,7 @@ using System.Web;
 using System.IO;
 using System.Net.Mail;
 
-namespace CodeProject.Business
+namespace NPA.Business
 {
     public class ProductBusinessService
     {
@@ -154,7 +154,7 @@ namespace CodeProject.Business
                 products = _productDataService.GetProducts(currentPageNumber, pageSize, sortExpression, sortDirection, out totalRows);
                 _productDataService.CloseSession();
 
-                transaction.TotalPages = CodeProject.Business.Common.Utilities.CalculateTotalPages(totalRows, pageSize);
+                transaction.TotalPages = NPA.Business.Common.Utilities.CalculateTotalPages(totalRows, pageSize);
                 transaction.TotalRows = totalRows;
 
                 transaction.ReturnStatus = true;

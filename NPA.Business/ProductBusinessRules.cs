@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 using System.Configuration;
-using CodeProject.Interfaces;
+using NPA.Interfaces;
 
-namespace CodeProject.Business
+namespace NPA.Business
 {
     public class ProductBusinessRules : AbstractValidator<Product>
     {

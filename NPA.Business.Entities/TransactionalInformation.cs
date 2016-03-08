@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 
-namespace CodeProject.Business.Entities
+namespace NPA.Business.Entities
 {
     public class TransactionalInformation
     {

@@ -4,9 +4,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using NPA.WEB.Models;
-using CodeProject.Business.Entities;
-using CodeProject.Business;
-using CodeProject.Interfaces;
+using NPA.Business.Entities;
+using NPA.Business;
+using NPA.Interfaces;
 using Ninject;
 
 namespace NPA.WEB.WebApiControllers

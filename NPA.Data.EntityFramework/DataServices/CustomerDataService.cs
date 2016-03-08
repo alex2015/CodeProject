@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CodeProject.Interfaces;
-using CodeProject.Business.Entities;
+using NPA.Interfaces;
+using NPA.Business.Entities;
 using System.Linq.Dynamic;
 
-namespace CodeProject.Data.EntityFramework
+namespace NPA.Data.EntityFramework
 {
     public class PersonDataService : EntityFrameworkService, IPersonDataService
     {

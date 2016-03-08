@@ -1,4 +1,4 @@
-﻿namespace CodeProject.Business.Entities
+﻿namespace NPA.Business.Entities
 {
     public class Person
     {

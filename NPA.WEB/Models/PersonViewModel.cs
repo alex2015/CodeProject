@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 
 namespace NPA.WEB.Models
 {

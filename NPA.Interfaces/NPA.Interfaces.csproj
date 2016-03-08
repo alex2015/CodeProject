@@ -7,8 +7,8 @@
     <ProjectGuid>{00AA57FD-B326-4022-9BA6-0732B0B3762F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeProject.Interfaces</RootNamespace>
-    <AssemblyName>CodeProject.Interfaces</AssemblyName>
+    <RootNamespace>NPA.Interfaces</RootNamespace>
+    <AssemblyName>NPA.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

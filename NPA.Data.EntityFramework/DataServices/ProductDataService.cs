@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CodeProject.Interfaces;
-using CodeProject.Business.Entities;
-using CodeProject.Business.Common;
+using NPA.Interfaces;
+using NPA.Business.Entities;
+using NPA.Business.Common;
 using System.Linq.Dynamic;
 
-namespace CodeProject.Data.EntityFramework
+namespace NPA.Data.EntityFramework
 {
     /// <summary>
     /// Account Data Service

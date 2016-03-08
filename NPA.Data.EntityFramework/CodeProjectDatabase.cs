@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 using System.Data.Entity;
 
-namespace CodeProject.Data.EntityFramework
+namespace NPA.Data.EntityFramework
 {
     /// <summary>
     /// CodeProject Entity Framework Database Context

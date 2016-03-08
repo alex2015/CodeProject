@@ -1,6 +1,6 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 using System.Collections.Generic;
 
 namespace NPA.WEB.Models

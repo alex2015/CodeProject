@@ -1,18 +1,18 @@
-namespace CodeProject.Data.EntityFramework.Migrations
+namespace NPA.Data.EntityFramework.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CodeProject.Data.EntityFramework.CodeProjectDatabase>
+    internal sealed class Configuration : DbMigrationsConfiguration<NPA.Data.EntityFramework.CodeProjectDatabase>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(CodeProject.Data.EntityFramework.CodeProjectDatabase context)
+        protected override void Seed(NPA.Data.EntityFramework.CodeProjectDatabase context)
         {
             //  This method will be called after migrating to the latest version.
 

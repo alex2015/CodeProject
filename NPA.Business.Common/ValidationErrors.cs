@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 using FluentValidation;
 using FluentValidation.Results;
 
-namespace CodeProject.Business.Common
+namespace NPA.Business.Common
 {
     /// <summary>
     /// Validation Errors

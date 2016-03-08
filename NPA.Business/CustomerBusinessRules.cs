@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using CodeProject.Business.Entities;
+using NPA.Business.Entities;
 
-namespace CodeProject.Business
+namespace NPA.Business
 {
     public class PersonBusinessRules : AbstractValidator<Person>
     {

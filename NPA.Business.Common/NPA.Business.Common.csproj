@@ -7,8 +7,8 @@
     <ProjectGuid>{98065BD3-D182-4DF8-8CF0-908CA5F72A6D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeProject.Business.Common</RootNamespace>
-    <AssemblyName>CodeProject.Business.Common</AssemblyName>
+    <RootNamespace>NPA.Business.Common</RootNamespace>
+    <AssemblyName>NPA.Business.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
