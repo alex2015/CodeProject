@@ -252,6 +252,33 @@ namespace CodeProject.Business
             }
         }
 
+        public void ActivatePerson(int personID, bool isActive, out TransactionalInformation transaction)
+        {
+            transaction = new TransactionalInformation();
+
+            try
+            {
+                _personDataService.CreateSession();
+                _personDataService.BeginTransaction();
+
+                _personDataService.ActivatePerson(_personDataService.GetPerson(personID), isActive);
+                _personDataService.CommitTransaction(true);
+
+                transaction.ReturnStatus = true;
+                transaction.ReturnMessage.Add(string.Format("Person was successfully {0}.", isActive ? "activate" : "deactivate"));
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                transaction.ReturnMessage.Add(errorMessage);
+                transaction.ReturnStatus = false;
+            }
+            finally
+            {
+                _personDataService.CloseSession();
+            }
+        }
+
         /// <summary>
         /// Initialize Data
         /// </summary>

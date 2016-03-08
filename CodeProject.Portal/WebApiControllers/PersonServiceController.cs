@@ -218,6 +218,34 @@ namespace CodeProject.Portal.WebApiControllers
             return response;
         }
 
+        [Route("ActivatePerson")]
+        [HttpPost]
+        public HttpResponseMessage ActivatePerson(HttpRequestMessage request, [FromBody] PersonActivateModel personActivateModel)
+        {
+            TransactionalInformation transaction;
+
+            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+
+            personBusinessService.ActivatePerson(personActivateModel.PersonID, personActivateModel.IsActive, out transaction);
+
+            if (transaction.ReturnStatus == false)
+            {
+                personActivateModel.ReturnStatus = false;
+                personActivateModel.ReturnMessage = transaction.ReturnMessage;
+                personActivateModel.ValidationErrors = transaction.ValidationErrors;
+
+                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, personActivateModel);
+                return responseError;
+            }
+
+            personActivateModel.ReturnStatus = true;
+            personActivateModel.ReturnMessage = transaction.ReturnMessage;
+
+            var response = Request.CreateResponse(HttpStatusCode.OK, personActivateModel);
+            return response;
+        }
+
+
         [Route("InitializeData")]
         [HttpPost]
         public HttpResponseMessage InitializeData(HttpRequestMessage request)

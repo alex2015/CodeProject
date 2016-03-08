@@ -1,59 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CodeProject.Interfaces;
 using CodeProject.Business.Entities;
-using CodeProject.Business.Common;
 using System.Linq.Dynamic;
 
 namespace CodeProject.Data.EntityFramework
 {
-    /// <summary>
-    /// Account Data Service
-    /// </summary>
     public class PersonDataService : EntityFrameworkService, IPersonDataService
     {
-
-        /// <summary>
-        /// Update Person
-        /// </summary>
-        /// <param name="person"></param>
         public void UpdatePerson(Person person)
         {
 
         }
 
-        /// <summary>
-        /// Create Person
-        /// </summary>
-        /// <param name="person"></param>
         public void CreatePerson(Person person)
         {
             dbConnection.Persons.Add(person);
         }
 
-        /// <summary>
-        /// Get Person
-        /// </summary>
-        /// <param name="personID"></param>
-        /// <returns></returns>
-        public Person GetPerson(int personID)
+        public void ActivatePerson(Person person, bool isActive)
         {
-            Person person = dbConnection.Persons.Where(c => c.PersonID == personID).FirstOrDefault();
-            return person;
+            person.IsActive = isActive;
         }
 
-        /// <summary>
-        /// Get Persons
-        /// </summary>
-        /// <param name="currentPageNumber"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="sortExpression"></param>
-        /// <param name="sortDirection"></param>
-        /// <param name="totalRows"></param>
-        /// <returns></returns>
+        public Person GetPerson(int personID)
+        {
+            return dbConnection.Persons.FirstOrDefault(c => c.PersonID == personID);
+        }
+
         public List<Person> GetPersons(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out int totalRows)
         {
             totalRows = 0;
@@ -62,7 +37,7 @@ namespace CodeProject.Data.EntityFramework
 
             totalRows = dbConnection.Persons.Count();
 
-            List<Person> persons = dbConnection.Persons.OrderBy(sortExpression).Skip((currentPageNumber - 1) * pageSize).Take(pageSize).ToList();
+            var persons = dbConnection.Persons.OrderBy(sortExpression).Skip((currentPageNumber - 1) * pageSize).Take(pageSize).ToList();
 
             return persons;
         }
@@ -72,18 +47,15 @@ namespace CodeProject.Data.EntityFramework
             dbConnection.Persons.Remove(person);
         }
 
-        /// <summary>
-        /// Initialize Data
-        /// </summary>
         public void InitializeData()
         {
-            List<Product> products = dbConnection.Products.ToList();
+            var products = dbConnection.Products.ToList();
             foreach (Product product in products)
             {
                 dbConnection.Products.Remove(product);
             }
 
-            List<Person> persons = dbConnection.Persons.ToList();
+            var persons = dbConnection.Persons.ToList();
             foreach (Person person in persons)
             {
                 dbConnection.Persons.Remove(person);
@@ -91,9 +63,6 @@ namespace CodeProject.Data.EntityFramework
 
         }
 
-        /// <summary>
-        /// Load Data
-        /// </summary>
         public void LoadData()
         {
 

@@ -14,6 +14,6 @@
 	    public string PhoneNumber { get; set; }
         public string MobileNumber { get; set; }
         public byte[] Image { get; set; }
-
+        public bool IsActive { get; set; }
     }
 }

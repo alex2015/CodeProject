@@ -23,4 +23,10 @@ namespace CodeProject.Portal.Models
 
     }
 
+    public class PersonActivateModel : TransactionalInformation
+    {
+        public int PersonID { get; set; }
+        public bool IsActive { get; set; }
+    }
+
 }

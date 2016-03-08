@@ -1,8 +1,8 @@
 ﻿
 console.log("person inquiry");
 
-angular.module("codeProject").register.controller('personInquiryController', ['$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
-    function ($routeParams, $location, ajaxService, dataGridService, alertService) {
+angular.module("codeProject").register.controller('personInquiryController', ['$scope', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
+    function ($scope, $routeParams, $location, ajaxService, dataGridService, alertService) {
 
     "use strict";
 
@@ -34,7 +34,6 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
         vm.pageSize = 15;
       
         this.executeInquiry();
-
     }
 
     this.closeAlert = function (index) {
@@ -84,6 +83,16 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
         vm.persons = response.persons;
         vm.totalPersons = response.totalRows;
         vm.totalPages = response.totalPages;
+
+        var array = [];
+
+        for (var a = 0; a < vm.persons.length; a++) {
+            array[vm.persons[a].personID] = false;
+        }
+
+        $scope.status = {
+            isopen: array
+        };
     }
 
     this.getPersonsOnError = function (response) {
@@ -97,13 +106,38 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
     }
 
     this.deletePersonOnSuccess = function (response) {
+        vm.actionOnSuccess(response);
+    }
+
+    this.deletePersonOnError = function (response) {
+        vm.actionOnError(response);
+    }
+
+    this.activatePerson = function (person) {
+        var inquiry = new Object();
+        inquiry.personID = person.personID;
+        inquiry.IsActive = !person.isActive;
+
+        ajaxService.ajaxPost(inquiry, "api/PersonService/ActivatePerson", this.activatePersonOnSuccess, this.activatePersonOnError);
+    }
+
+    this.activatePersonOnSuccess = function (response) {
+        vm.actionOnSuccess(response);
+    }
+
+    this.activatePersonOnError = function (response) {
+        vm.actionOnError(response);
+    }
+
+    this.actionOnSuccess = function (response) {
         alertService.renderSuccessMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
         vm.alerts = alertService.returnAlerts();
         vm.executeInquiry();
     }
 
-    this.deletePersonOnError = function (response) {
+
+    this.actionOnError = function (response) {
         alertService.renderErrorMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
         vm.alerts = alertService.returnAlerts();
