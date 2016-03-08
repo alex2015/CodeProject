@@ -1055,25 +1055,25 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeProject.Business.Common\CodeProject.Business.Common.csproj">
+    <ProjectReference Include="..\NPA.Business.Common\NPA.Business.Common.csproj">
       <Project>{98065bd3-d182-4df8-8cf0-908ca5f72a6d}</Project>
-      <Name>CodeProject.Business.Common</Name>
+      <Name>NPA.Business.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeProject.Business.Entities\CodeProject.Business.Entities.csproj">
+    <ProjectReference Include="..\NPA.Business.Entities\NPA.Business.Entities.csproj">
       <Project>{7fc08037-8e74-4524-bf70-10eec84fa15f}</Project>
-      <Name>CodeProject.Business.Entities</Name>
+      <Name>NPA.Business.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeProject.Business\CodeProject.Business.csproj">
+    <ProjectReference Include="..\NPA.Business\NPA.Business.csproj">
       <Project>{97b799db-0fc9-4522-96f6-f3348364dc92}</Project>
-      <Name>CodeProject.Business</Name>
+      <Name>NPA.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeProject.Data.EntityFramework\CodeProject.Data.EntityFramework.csproj">
+    <ProjectReference Include="..\NPA.Data.EntityFramework\NPA.Data.EntityFramework.csproj">
       <Project>{257f02cc-6dc4-4d11-9e32-53b5fe8dd1c9}</Project>
-      <Name>CodeProject.Data.EntityFramework</Name>
+      <Name>NPA.Data.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeProject.Interfaces\CodeProject.Interfaces.csproj">
+    <ProjectReference Include="..\NPA.Interfaces\NPA.Interfaces.csproj">
       <Project>{00aa57fd-b326-4022-9ba6-0732b0b3762f}</Project>
-      <Name>CodeProject.Interfaces</Name>
+      <Name>NPA.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

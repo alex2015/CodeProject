@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProject.Portal", "CodeProject.Portal\CodeProject.Portal.csproj", "{34662FC1-B342-48B5-8179-69CD8A6DF673}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPA.WEB", "NPA.WEB\NPA.WEB.csproj", "{34662FC1-B342-48B5-8179-69CD8A6DF673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProject.Interfaces", "CodeProject.Interfaces\CodeProject.Interfaces.csproj", "{00AA57FD-B326-4022-9BA6-0732B0B3762F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPA.Interfaces", "NPA.Interfaces\NPA.Interfaces.csproj", "{00AA57FD-B326-4022-9BA6-0732B0B3762F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProject.Data.EntityFramework", "CodeProject.Data.EntityFramework\CodeProject.Data.EntityFramework.csproj", "{257F02CC-6DC4-4D11-9E32-53B5FE8DD1C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPA.Data.EntityFramework", "NPA.Data.EntityFramework\NPA.Data.EntityFramework.csproj", "{257F02CC-6DC4-4D11-9E32-53B5FE8DD1C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProject.Business.Entities", "CodeProject.Business.Entities\CodeProject.Business.Entities.csproj", "{7FC08037-8E74-4524-BF70-10EEC84FA15F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPA.Business.Entities", "NPA.Business.Entities\NPA.Business.Entities.csproj", "{7FC08037-8E74-4524-BF70-10EEC84FA15F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProject.Business.Common", "CodeProject.Business.Common\CodeProject.Business.Common.csproj", "{98065BD3-D182-4DF8-8CF0-908CA5F72A6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPA.Business.Common", "NPA.Business.Common\NPA.Business.Common.csproj", "{98065BD3-D182-4DF8-8CF0-908CA5F72A6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProject.Business", "CodeProject.Business\CodeProject.Business.csproj", "{97B799DB-0FC9-4522-96F6-F3348364DC92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPA.Business", "NPA.Business\NPA.Business.csproj", "{97B799DB-0FC9-4522-96F6-F3348364DC92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

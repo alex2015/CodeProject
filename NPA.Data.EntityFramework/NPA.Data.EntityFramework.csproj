@@ -61,17 +61,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeProject.Business.Common\CodeProject.Business.Common.csproj">
+    <ProjectReference Include="..\NPA.Business.Common\NPA.Business.Common.csproj">
       <Project>{98065bd3-d182-4df8-8cf0-908ca5f72a6d}</Project>
-      <Name>CodeProject.Business.Common</Name>
+      <Name>NPA.Business.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeProject.Business.Entities\CodeProject.Business.Entities.csproj">
+    <ProjectReference Include="..\NPA.Business.Entities\NPA.Business.Entities.csproj">
       <Project>{7fc08037-8e74-4524-bf70-10eec84fa15f}</Project>
-      <Name>CodeProject.Business.Entities</Name>
+      <Name>NPA.Business.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CodeProject.Interfaces\CodeProject.Interfaces.csproj">
+    <ProjectReference Include="..\NPA.Interfaces\NPA.Interfaces.csproj">
       <Project>{00aa57fd-b326-4022-9ba6-0732b0b3762f}</Project>
-      <Name>CodeProject.Interfaces</Name>
+      <Name>NPA.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
