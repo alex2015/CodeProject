@@ -107,14 +107,12 @@ namespace NPA.Business
                 Person existingPerson = _personDataService.GetPerson(person.PersonID);
 
                 existingPerson.CompanyName = person.CompanyName;
-                existingPerson.ContactName = person.ContactName;
+                existingPerson.Name = person.Name;
                 existingPerson.ContactTitle = person.ContactTitle;
                 existingPerson.Address = person.Address;
                 existingPerson.City = person.City;
                 existingPerson.Region = person.Region;
-                existingPerson.PostalCode = person.PostalCode;
                 existingPerson.Country = person.Country;
-                existingPerson.PhoneNumber = person.PhoneNumber;
                 existingPerson.MobileNumber = person.MobileNumber;
                 existingPerson.Image = person.Image;
 

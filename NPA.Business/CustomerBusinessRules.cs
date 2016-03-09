@@ -8,7 +8,7 @@ namespace NPA.Business
       
         public PersonBusinessRules()
         {
-            RuleFor(c => c.ContactName).NotEmpty().WithMessage("ContactName is required.");      
+            RuleFor(c => c.Name).NotEmpty().WithMessage("Name is required.");      
             RuleFor(c => c.CompanyName).NotEmpty().WithMessage("Company Name is required.");
         }
 

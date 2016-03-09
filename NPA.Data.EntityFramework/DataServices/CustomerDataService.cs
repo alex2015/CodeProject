@@ -267,25 +267,21 @@ namespace NPA.Data.EntityFramework
             {
                 string[] fields = personInsertStatement.Split(',');
                 string companyName = fields[1].Replace("'", "");
-                string contactName = fields[2].Replace("'", "");
+                string name = fields[2].Replace("'", "");
                 string contactTitle = fields[3].Replace("'", "");
                 string address = fields[4].Replace("'", "");
                 string city = fields[5].Replace("'", "");
                 string region = fields[6].Replace("'", "");
-                string postalCode = fields[7].Replace("'", "");
                 string country = fields[8].Replace("'", "");
-                string phoneNumber = fields[9].Replace("'", "");
                 string mobileNumber = fields[10].Replace("'", "");
 
                 if (companyName == "NULL") companyName = "";
-                if (contactName == "NULL") contactName = "";
+                if (name == "NULL") name = "";
                 if (contactTitle == "NULL") contactTitle = "";
                 if (address == "NULL") address = "";
                 if (city == "NULL") city = "";
                 if (region == "NULL") region = "";
-                if (postalCode == "NULL") postalCode = "";
                 if (country == "NULL") country = "";
-                if (phoneNumber == "NULL") phoneNumber = "";
                 if (mobileNumber == "NULL") mobileNumber = "";
 
                 int testInt;
@@ -299,11 +295,9 @@ namespace NPA.Data.EntityFramework
                 person.Address = address;
                 person.City = city;
                 person.Region = region;
-                person.PostalCode = postalCode;
-                person.PhoneNumber = phoneNumber;
                 person.MobileNumber = mobileNumber;
                 person.CompanyName = companyName;
-                person.ContactName = contactName;
+                person.Name = name;
                 person.ContactTitle = contactTitle;
                 person.Country = country;
 

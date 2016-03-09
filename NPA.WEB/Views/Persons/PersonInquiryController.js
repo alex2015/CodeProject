@@ -19,8 +19,8 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
 
 
         dataGridService.addHeader("Person ID", "PersonID");
+        dataGridService.addHeader("Name", "Name");
         dataGridService.addHeader("Company Name", "CompanyName");
-        dataGridService.addHeader("Contact Name", "ContactName");
         dataGridService.addHeader("City", "City");
         dataGridService.addHeader("Region", "Region");
         dataGridService.addHeader("Delete", "Delete");

@@ -26,14 +26,12 @@ namespace NPA.WEB.WebApiControllers
 
             Person person = new Person();
             person.CompanyName = personViewModel.CompanyName;
-            person.ContactName = personViewModel.ContactName;
+            person.Name = personViewModel.Name;
             person.ContactTitle = personViewModel.ContactTitle;
             person.Address = personViewModel.Address;
             person.City = personViewModel.City;
             person.Region = personViewModel.Region;
-            person.PostalCode = personViewModel.PostalCode;
             person.Country = personViewModel.Country;
-            person.PhoneNumber = personViewModel.PhoneNumber;
             person.MobileNumber = personViewModel.MobileNumber;
 
             if (personViewModel.ImageUrl != null)
@@ -72,14 +70,12 @@ namespace NPA.WEB.WebApiControllers
             Person person = new Person();
             person.PersonID = personViewModel.PersonID;
             person.CompanyName = personViewModel.CompanyName;
-            person.ContactName = personViewModel.ContactName;
+            person.Name = personViewModel.Name;
             person.ContactTitle = personViewModel.ContactTitle;
             person.Address = personViewModel.Address;
             person.City = personViewModel.City;
             person.Region = personViewModel.Region;
-            person.PostalCode = personViewModel.PostalCode;
             person.Country = personViewModel.Country;
-            person.PhoneNumber = personViewModel.PhoneNumber;
             person.MobileNumber = personViewModel.MobileNumber;
 
             if (personViewModel.ImageUrl != null)
@@ -168,14 +164,12 @@ namespace NPA.WEB.WebApiControllers
 
             personViewModel.PersonID = person.PersonID;
             personViewModel.CompanyName = person.CompanyName;
-            personViewModel.ContactName = person.ContactName;
+            personViewModel.Name = person.Name;
             personViewModel.ContactTitle = person.ContactTitle;
             personViewModel.Address = person.Address;
             personViewModel.City = person.City;
             personViewModel.Region = person.Region;
-            personViewModel.PostalCode = person.PostalCode;
             personViewModel.Country = person.Country;
-            personViewModel.PhoneNumber = person.PhoneNumber;
             personViewModel.MobileNumber = person.MobileNumber;
 
             if (person.Image != null)
