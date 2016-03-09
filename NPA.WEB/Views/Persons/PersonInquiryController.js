@@ -10,7 +10,7 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
 
     this.initializeController = function () {
 
-        vm.title = "Person Inquiry";
+        vm.title = "People";
 
         vm.alerts = [];
         vm.closeAlert = alertService.closeAlert;

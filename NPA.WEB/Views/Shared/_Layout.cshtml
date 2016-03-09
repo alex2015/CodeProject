@@ -1,29 +1,17 @@
 ﻿@using NPA.WEB.Models
 @{
 
-    var version = typeof(NPA.WEB.MvcApplication).Assembly.GetName().Version.ToString();
-    string baseUrl = System.Configuration.ConfigurationManager.AppSettings["BaseUrl"].ToString();
+    var version = typeof(MvcApplication).Assembly.GetName().Version.ToString();
+    string baseUrl = System.Configuration.ConfigurationManager.AppSettings["BaseUrl"];
 
-    List<CustomBundle> bundles = new List<CustomBundle>();
+    var codeProjectBundles = new List<string> {"home", "persons", "products"};
 
-    NPA.WEB.Models.CustomBundle customBundle;
-
-    List<string> codeProjectBundles = new List<string>();
-    codeProjectBundles.Add("home");
-    codeProjectBundles.Add("persons");
-    codeProjectBundles.Add("products");
-
-    foreach (string controller in codeProjectBundles)
+    var bundles = codeProjectBundles.Select(controller => new CustomBundle
     {
-        customBundle = new NPA.WEB.Models.CustomBundle();
-        customBundle.BundleName = controller;
-        customBundle.Path = BundleTable.Bundles.ResolveBundleUrl("~/bundles/" + controller);
-        customBundle.IsLoaded = false;
-        bundles.Add(customBundle);
-    }
+        BundleName = controller, Path = BundleTable.Bundles.ResolveBundleUrl("~/bundles/" + controller), IsLoaded = false
+    }).ToList();
 
-    BundleInformation bundleInformation = new BundleInformation();
-    bundleInformation.Bundles = bundles;
+    var bundleInformation = new BundleInformation {Bundles = bundles};
     string bundleInformationJSON = Newtonsoft.Json.JsonConvert.SerializeObject(bundleInformation, Newtonsoft.Json.Formatting.None);
 
 }
@@ -38,7 +26,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <title>AngularJS MVC Code Project</title>
+    <title>AngularJS Application</title>
 
     <script src="~/Scripts/require.js"></script>
 
@@ -66,18 +54,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span class="navbar-brand"><a href="Home/Index">AngularJS MVC Code Project</a></span>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
                     <li><a href="Home/Index">Home</a></li>
-                    <li><a href="Home/Contact">Contact Us</a></li>
-                    <li><a href="Home/About">About</a></li>
-                    <li><a href="Persons/PersonMaintenance">Person Maintenance</a></li>
-                    <li><a href="Persons/PersonInquiry">Person Inquiry</a></li>
-                    <li><a href="Products/ProductMaintenance">Product Maintenance</a></li>
-                    <li><a href="Products/ProductInquiry">Product Inquiry</a></li>                  
+                    <li><a href="Persons/PersonInquiry">People</a></li>
+                    <li><a href="Products/ProductInquiry">Products</a></li>                  
                 </ul>
             </div>
         </div>
@@ -88,7 +71,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - AngularJS MVC @version</p>          
+            <p>&copy; @DateTime.Now.Year - AngularJS Application</p>          
         </footer>
     </div>
 

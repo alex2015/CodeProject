@@ -1006,10 +1006,6 @@
     <Content Include="Views\Persons\PersonInquiryController.js" />
     <Content Include="Views\Persons\PersonMaintenance.html" />
     <Content Include="Views\Persons\PersonMaintenanceController.js" />
-    <Content Include="Views\Home\About.html" />
-    <Content Include="Views\Home\AboutController.js" />
-    <Content Include="Views\Home\Contact.html" />
-    <Content Include="Views\Home\ContactController.js" />
     <Content Include="Views\Home\Index.html" />
     <Content Include="Views\Home\IndexController.js" />
     <Content Include="Views\Home\InitializeData.html" />
