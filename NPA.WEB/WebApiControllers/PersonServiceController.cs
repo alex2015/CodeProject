@@ -24,22 +24,24 @@ namespace NPA.WEB.WebApiControllers
         {
             TransactionalInformation transaction;
 
-            Person person = new Person();
-            person.CompanyName = personViewModel.CompanyName;
-            person.Name = personViewModel.Name;
-            person.ContactTitle = personViewModel.ContactTitle;
-            person.Address = personViewModel.Address;
-            person.City = personViewModel.City;
-            person.Region = personViewModel.Region;
-            person.Country = personViewModel.Country;
-            person.MobileNumber = personViewModel.MobileNumber;
+            var person = new Person
+            {
+                CompanyName = personViewModel.CompanyName,
+                Name = personViewModel.Name,
+                ContactTitle = personViewModel.ContactTitle,
+                Address = personViewModel.Address,
+                City = personViewModel.City,
+                Region = personViewModel.Region,
+                Country = personViewModel.Country,
+                MobileNumber = personViewModel.MobileNumber
+            };
 
             if (personViewModel.ImageUrl != null)
             {
                 person.Image = Convert.FromBase64String(personViewModel.ImageUrl.Replace("data:image/jpeg;base64,", ""));
             }
 
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+            var personBusinessService = new PersonBusinessService(_personDataService);
             personBusinessService.CreatePerson(person, out transaction);
             if (transaction.ReturnStatus == false)
             {                
@@ -67,23 +69,25 @@ namespace NPA.WEB.WebApiControllers
         {
             TransactionalInformation transaction;
 
-            Person person = new Person();
-            person.PersonID = personViewModel.PersonID;
-            person.CompanyName = personViewModel.CompanyName;
-            person.Name = personViewModel.Name;
-            person.ContactTitle = personViewModel.ContactTitle;
-            person.Address = personViewModel.Address;
-            person.City = personViewModel.City;
-            person.Region = personViewModel.Region;
-            person.Country = personViewModel.Country;
-            person.MobileNumber = personViewModel.MobileNumber;
+            var person = new Person
+            {
+                PersonID = personViewModel.PersonID,
+                CompanyName = personViewModel.CompanyName,
+                Name = personViewModel.Name,
+                ContactTitle = personViewModel.ContactTitle,
+                Address = personViewModel.Address,
+                City = personViewModel.City,
+                Region = personViewModel.Region,
+                Country = personViewModel.Country,
+                MobileNumber = personViewModel.MobileNumber
+            };
 
             if (personViewModel.ImageUrl != null)
             {
                 person.Image = Convert.FromBase64String(personViewModel.ImageUrl.Replace("data:image/jpeg;base64,", ""));
             }
 
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+            var personBusinessService = new PersonBusinessService(_personDataService);
             personBusinessService.UpdatePerson(person, out transaction);
             if (transaction.ReturnStatus == false)
             {
@@ -91,7 +95,7 @@ namespace NPA.WEB.WebApiControllers
                 personViewModel.ReturnMessage = transaction.ReturnMessage;
                 personViewModel.ValidationErrors = transaction.ValidationErrors;
 
-                var responseError = Request.CreateResponse<PersonViewModel>(HttpStatusCode.BadRequest, personViewModel);
+                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, personViewModel);
                 return responseError;
 
             }
@@ -99,7 +103,7 @@ namespace NPA.WEB.WebApiControllers
             personViewModel.ReturnStatus = true;
             personViewModel.ReturnMessage = transaction.ReturnMessage;
 
-            var response = Request.CreateResponse<PersonViewModel>(HttpStatusCode.OK, personViewModel);
+            var response = Request.CreateResponse(HttpStatusCode.OK, personViewModel);
             return response;
 
         }
@@ -116,15 +120,15 @@ namespace NPA.WEB.WebApiControllers
             string sortExpression = personViewModel.SortExpression;
             string sortDirection = personViewModel.SortDirection;
 
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
-            List<Person> persons = personBusinessService.GetPersons(currentPageNumber, pageSize, sortExpression, sortDirection, out transaction);
+            var personBusinessService = new PersonBusinessService(_personDataService);
+            var persons = personBusinessService.GetPersons(currentPageNumber, pageSize, sortExpression, sortDirection, out transaction);
             if (transaction.ReturnStatus == false)
             {                
                 personViewModel.ReturnStatus = false;
                 personViewModel.ReturnMessage = transaction.ReturnMessage;
                 personViewModel.ValidationErrors = transaction.ValidationErrors;
 
-                var responseError = Request.CreateResponse<PersonViewModel>(HttpStatusCode.BadRequest, personViewModel);
+                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, personViewModel);
                 return responseError;
 
             }
@@ -135,7 +139,7 @@ namespace NPA.WEB.WebApiControllers
             personViewModel.ReturnStatus = true;
             personViewModel.ReturnMessage = transaction.ReturnMessage;
 
-            var response = Request.CreateResponse<PersonViewModel>(HttpStatusCode.OK, personViewModel);
+            var response = Request.CreateResponse(HttpStatusCode.OK, personViewModel);
             return response;
 
         }
@@ -149,15 +153,15 @@ namespace NPA.WEB.WebApiControllers
 
             int personID = personViewModel.PersonID;
           
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
-            Person person = personBusinessService.GetPerson(personID, out transaction);
+            var personBusinessService = new PersonBusinessService(_personDataService);
+            var person = personBusinessService.GetPerson(personID, out transaction);
             if (transaction.ReturnStatus == false)
             {
                 personViewModel.ReturnStatus = false;
                 personViewModel.ReturnMessage = transaction.ReturnMessage;
                 personViewModel.ValidationErrors = transaction.ValidationErrors;
 
-                var responseError = Request.CreateResponse<PersonViewModel>(HttpStatusCode.BadRequest, personViewModel);
+                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, personViewModel);
                 return responseError;
 
             }
@@ -180,7 +184,7 @@ namespace NPA.WEB.WebApiControllers
             personViewModel.ReturnStatus = true;
             personViewModel.ReturnMessage = transaction.ReturnMessage;
 
-            var response = Request.CreateResponse<PersonViewModel>(HttpStatusCode.OK, personViewModel);
+            var response = Request.CreateResponse(HttpStatusCode.OK, personViewModel);
             return response;
 
         }
@@ -191,7 +195,7 @@ namespace NPA.WEB.WebApiControllers
         {
             TransactionalInformation transaction;
 
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+            var personBusinessService = new PersonBusinessService(_personDataService);
 
             personBusinessService.DeletePerson(personViewModel.PersonID, out transaction);
 
@@ -201,14 +205,14 @@ namespace NPA.WEB.WebApiControllers
                 personViewModel.ReturnMessage = transaction.ReturnMessage;
                 personViewModel.ValidationErrors = transaction.ValidationErrors;
 
-                var responseError = Request.CreateResponse<PersonViewModel>(HttpStatusCode.BadRequest, personViewModel);
+                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, personViewModel);
                 return responseError;
             }
 
             personViewModel.ReturnStatus = true;
             personViewModel.ReturnMessage = transaction.ReturnMessage;
 
-            var response = Request.CreateResponse<PersonViewModel>(HttpStatusCode.OK, personViewModel);
+            var response = Request.CreateResponse(HttpStatusCode.OK, personViewModel);
             return response;
         }
 
@@ -218,7 +222,7 @@ namespace NPA.WEB.WebApiControllers
         {
             TransactionalInformation transaction;
 
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+            var personBusinessService = new PersonBusinessService(_personDataService);
 
             personBusinessService.ActivatePerson(personActivateModel.PersonID, personActivateModel.IsActive, out transaction);
 
@@ -244,21 +248,18 @@ namespace NPA.WEB.WebApiControllers
         [HttpPost]
         public HttpResponseMessage InitializeData(HttpRequestMessage request)
         {
-
             TransactionalInformation transaction;
       
-            PersonBusinessService personBusinessService = new PersonBusinessService(_personDataService);
+            var personBusinessService = new PersonBusinessService(_personDataService);
             personBusinessService.InitializeData(out transaction);
             if (transaction.ReturnStatus == false)
             {               
-                var responseError = Request.CreateResponse<TransactionalInformation>(HttpStatusCode.BadRequest, transaction);
+                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, transaction);
                 return responseError;
-
             }
 
-            var response = Request.CreateResponse<TransactionalInformation>(HttpStatusCode.OK, transaction);
+            var response = Request.CreateResponse(HttpStatusCode.OK, transaction);
             return response;
-
         }
     }
 }

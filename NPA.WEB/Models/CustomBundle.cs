@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NPA.WEB.Models
 {
@@ -15,6 +11,6 @@ namespace NPA.WEB.Models
     {
         public string BundleName { get; set; }
         public string Path { get; set; }
-        public Boolean IsLoaded { get; set; }               
+        public bool IsLoaded { get; set; }               
     }
 }

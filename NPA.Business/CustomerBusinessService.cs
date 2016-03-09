@@ -1,50 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NPA.Business.Entities;
 using NPA.Interfaces;
 using NPA.Business.Common;
-
-using FluentValidation;
-using FluentValidation.Results;
-using System.Configuration;
-using System.Web;
-using System.IO;
-using System.Net.Mail;
 
 namespace NPA.Business
 {
     public class PersonBusinessService
     {
-        private IPersonDataService _personDataService;
+        private readonly IPersonDataService _personDataService;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public PersonBusinessService(IPersonDataService personDataService)
         {
             _personDataService = personDataService;
         }
 
-        /// <summary>
-        /// Create Person
-        /// </summary>
-        /// <param name="person"></param>
-        /// <param name="transaction"></param>
-        /// <returns></returns>
         public Person CreatePerson(Person person, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
             try
             {
-                PersonBusinessRules personBusinessRules = new PersonBusinessRules();
-                ValidationResult results = personBusinessRules.Validate(person);
+                var personBusinessRules = new PersonBusinessRules();
+                var results = personBusinessRules.Validate(person);
 
                 bool validationSucceeded = results.IsValid;
-                IList<ValidationFailure> failures = results.Errors;
+                var failures = results.Errors;
 
                 if (validationSucceeded == false)
                 {
@@ -77,23 +58,17 @@ namespace NPA.Business
 
         }
 
-        /// <summary>
-        /// Update Person
-        /// </summary>
-        /// <param name="person"></param>
-        /// <param name="transaction"></param>
         public void UpdatePerson(Person person, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
             try
             {
-
-                PersonBusinessRules personBusinessRules = new PersonBusinessRules();
-                ValidationResult results = personBusinessRules.Validate(person);
+                var personBusinessRules = new PersonBusinessRules();
+                var results = personBusinessRules.Validate(person);
 
                 bool validationSucceeded = results.IsValid;
-                IList<ValidationFailure> failures = results.Errors;
+                var failures = results.Errors;
 
                 if (validationSucceeded == false)
                 {
@@ -104,7 +79,7 @@ namespace NPA.Business
                 _personDataService.CreateSession();
                 _personDataService.BeginTransaction();
 
-                Person existingPerson = _personDataService.GetPerson(person.PersonID);
+                var existingPerson = _personDataService.GetPerson(person.PersonID);
 
                 existingPerson.CompanyName = person.CompanyName;
                 existingPerson.Name = person.Name;
@@ -137,20 +112,11 @@ namespace NPA.Business
 
         }
 
-        /// <summary>
-        /// Get Persons
-        /// </summary>
-        /// <param name="currentPageNumber"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="sortExpression"></param>
-        /// <param name="sortDirection"></param>
-        /// <param name="transaction"></param>
-        /// <returns></returns>
         public List<Person> GetPersons(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
-            List<Person> persons = new List<Person>();
+            var persons = new List<Person>();
 
             try
             {
@@ -160,7 +126,7 @@ namespace NPA.Business
                 persons = _personDataService.GetPersons(currentPageNumber, pageSize, sortExpression, sortDirection, out totalRows);
                 _personDataService.CloseSession();
 
-                transaction.TotalPages = NPA.Business.Common.Utilities.CalculateTotalPages(totalRows, pageSize);
+                transaction.TotalPages = Utilities.CalculateTotalPages(totalRows, pageSize);
                 transaction.TotalRows = totalRows;
 
                 transaction.ReturnStatus = true;
@@ -181,17 +147,11 @@ namespace NPA.Business
 
         }
 
-        /// <summary>
-        /// Get Person
-        /// </summary>
-        /// <param name="personID"></param>
-        /// <param name="transaction"></param>
-        /// <returns></returns>
         public Person GetPerson(int personID, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
-            Person person = new Person();
+            var person = new Person();
 
             try
             {
@@ -217,12 +177,6 @@ namespace NPA.Business
 
         }
 
-        /// <summary>
-        /// Delete Person
-        /// </summary>
-        /// <param name="personID"></param>
-        /// <param name="transaction"></param>
-        /// <returns></returns>
         public void DeletePerson(int personID, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
@@ -277,19 +231,12 @@ namespace NPA.Business
             }
         }
 
-        /// <summary>
-        /// Initialize Data
-        /// </summary>
-        /// <param name="transaction"></param>
         public void InitializeData(out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
 
-            Person person = new Person();
-
             try
             {
-
                 _personDataService.CreateSession();
                 _personDataService.BeginTransaction();
                 _personDataService.InitializeData();
@@ -315,11 +262,6 @@ namespace NPA.Business
             {
                 _personDataService.CloseSession();
             }           
-
         }
-
-
-
-
     }
 }

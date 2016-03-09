@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NPA.Business.Entities
+﻿namespace NPA.Business.Entities
 {
     public class Product
     {

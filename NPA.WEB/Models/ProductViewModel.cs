@@ -1,13 +1,8 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-using NPA.Business.Entities;
+﻿using NPA.Business.Entities;
 using System.Collections.Generic;
 
 namespace NPA.WEB.Models
 {
-    /// <summary>
-    /// Prodct View Model
-    /// </summary>
     public class ProductViewModel : TransactionalInformation
     {
         public int ProductID { get; set; }
@@ -16,8 +11,6 @@ namespace NPA.WEB.Models
         public decimal UnitPrice { get; set; }
        
         public List<Product> Products { get; set; }
-
     }
-
 }
 

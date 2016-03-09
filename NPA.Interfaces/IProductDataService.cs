@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NPA.Business.Entities;
 
 namespace NPA.Interfaces
 {
-    /// <summary>
-    /// Product Data Service
-    /// </summary>
     public interface IProductDataService : IDataRepository, IDisposable
     {
         void CreateProduct(Product product);
