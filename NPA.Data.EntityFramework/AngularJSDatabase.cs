@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace NPA.Data.EntityFramework
 {
-    public class CodeProjectDatabase : DbContext
+    public class AngularJSDatabase : DbContext
     {
         public DbSet<Person> Persons { get; set; }
         public DbSet<Product> Products { get; set; }

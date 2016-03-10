@@ -4,9 +4,9 @@ namespace NPA.Data.EntityFramework
 {
     public class EntityFrameworkService : IDataRepository, IDisposable
     {
-        CodeProjectDatabase _connection;
+        AngularJSDatabase _connection;
 
-        public CodeProjectDatabase dbConnection
+        public AngularJSDatabase dbConnection
         {
             get { return _connection; }
         }
@@ -23,9 +23,9 @@ namespace NPA.Data.EntityFramework
         public void Save(object entity) { }
         public void CreateSession() 
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CodeProjectDatabase, Configuration>()); 
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AngularJSDatabase, Configuration>()); 
 
-            _connection = new CodeProjectDatabase(); 
+            _connection = new AngularJSDatabase(); 
         }
         public void BeginTransaction() { }
 

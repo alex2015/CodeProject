@@ -43,7 +43,7 @@
     <Compile Include="DataServices\ProductDataService.cs" />
     <Compile Include="DynamicLibrary.cs" />
     <Compile Include="EntityFrameworkService.cs" />
-    <Compile Include="CodeProjectDatabase.cs" />
+    <Compile Include="AngularJSDatabase.cs" />
     <Compile Include="Interfaces\IDataRepository.cs" />
     <Compile Include="Interfaces\IPersonDataService.cs" />
     <Compile Include="Interfaces\IProductDataService.cs" />
