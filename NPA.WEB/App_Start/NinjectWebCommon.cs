@@ -1,3 +1,5 @@
+using NPA.Data.EntityFramework;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NPA.WEB.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NPA.WEB.App_Start.NinjectWebCommon), "Stop")]
 
@@ -48,8 +50,8 @@ namespace NPA.WEB.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<Interfaces.IPersonDataService>().To<Data.EntityFramework.PersonDataService>();
-            kernel.Bind<Interfaces.IProductDataService>().To<Data.EntityFramework.ProductDataService>();
+            kernel.Bind<IPersonDataService>().To<PersonDataService>();
+            kernel.Bind<IProductDataService>().To<ProductDataService>();
         }        
     }
 }

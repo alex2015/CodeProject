@@ -53,6 +53,9 @@
     <Compile Include="DynamicLibrary.cs" />
     <Compile Include="EntityFrameworkService.cs" />
     <Compile Include="CodeProjectDatabase.cs" />
+    <Compile Include="Interfaces\IDataRepository.cs" />
+    <Compile Include="Interfaces\IPersonDataService.cs" />
+    <Compile Include="Interfaces\IProductDataService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,10 +71,6 @@
     <ProjectReference Include="..\NPA.Business.Entities\NPA.Business.Entities.csproj">
       <Project>{7fc08037-8e74-4524-bf70-10eec84fa15f}</Project>
       <Name>NPA.Business.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NPA.Interfaces\NPA.Interfaces.csproj">
-      <Project>{00aa57fd-b326-4022-9ba6-0732b0b3762f}</Project>
-      <Name>NPA.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

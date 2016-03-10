@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NPA.Business.Entities;
 
-namespace NPA.Interfaces
+namespace NPA.Data.EntityFramework
 {
     public interface IPersonDataService : IDataRepository, IDisposable
     {

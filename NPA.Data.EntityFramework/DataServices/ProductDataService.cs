@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NPA.Interfaces;
 using NPA.Business.Entities;
-using NPA.Business.Common;
 using System.Linq.Dynamic;
 
 namespace NPA.Data.EntityFramework

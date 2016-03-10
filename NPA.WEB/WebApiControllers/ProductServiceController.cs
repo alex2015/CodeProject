@@ -4,8 +4,8 @@ using System.Web.Http;
 using NPA.WEB.Models;
 using NPA.Business.Entities;
 using NPA.Business;
-using NPA.Interfaces;
 using Ninject;
+using NPA.Data.EntityFramework;
 
 namespace NPA.WEB.WebApiControllers
 {

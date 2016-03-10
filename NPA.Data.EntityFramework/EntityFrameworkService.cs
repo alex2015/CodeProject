@@ -1,5 +1,4 @@
 ﻿using System;
-using NPA.Interfaces;
 
 namespace NPA.Data.EntityFramework
 {
@@ -12,12 +11,12 @@ namespace NPA.Data.EntityFramework
             get { return _connection; }
         }
 
-        public void CommitTransaction(Boolean closeSession)
+        public void CommitTransaction(bool closeSession)
         {
             dbConnection.SaveChanges();
         }
 
-        public void RollbackTransaction(Boolean closeSession)
+        public void RollbackTransaction(bool closeSession)
         {
         }
 

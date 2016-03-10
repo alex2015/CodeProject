@@ -1,9 +1,7 @@
 ﻿//Copyright (C) Microsoft Corporation.  All rights reserved.
 
-using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -592,21 +590,21 @@ namespace System.Linq.Dynamic
         }
 
         static readonly Type[] predefinedTypes = {
-            typeof(Object),
-            typeof(Boolean),
-            typeof(Char),
-            typeof(String),
-            typeof(SByte),
-            typeof(Byte),
-            typeof(Int16),
-            typeof(UInt16),
-            typeof(Int32),
-            typeof(UInt32),
-            typeof(Int64),
-            typeof(UInt64),
-            typeof(Single),
-            typeof(Double),
-            typeof(Decimal),
+            typeof(object),
+            typeof(bool),
+            typeof(char),
+            typeof(string),
+            typeof(sbyte),
+            typeof(byte),
+            typeof(short),
+            typeof(ushort),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong),
+            typeof(float),
+            typeof(double),
+            typeof(decimal),
             typeof(DateTime),
             typeof(TimeSpan),
             typeof(Guid),
@@ -651,9 +649,9 @@ namespace System.Linq.Dynamic
         void ProcessParameters(ParameterExpression[] parameters)
         {
             foreach (ParameterExpression pe in parameters)
-                if (!String.IsNullOrEmpty(pe.Name))
+                if (!string.IsNullOrEmpty(pe.Name))
                     AddSymbol(pe.Name, pe);
-            if (parameters.Length == 1 && String.IsNullOrEmpty(parameters[0].Name))
+            if (parameters.Length == 1 && string.IsNullOrEmpty(parameters[0].Name))
                 it = parameters[0];
         }
 
@@ -1008,21 +1006,21 @@ namespace System.Linq.Dynamic
             if (text[0] != '-')
             {
                 ulong value;
-                if (!UInt64.TryParse(text, out value))
+                if (!ulong.TryParse(text, out value))
                     throw ParseError(Res.InvalidIntegerLiteral, text);
                 NextToken();
-                if (value <= (ulong)Int32.MaxValue) return CreateLiteral((int)value, text);
-                if (value <= (ulong)UInt32.MaxValue) return CreateLiteral((uint)value, text);
-                if (value <= (ulong)Int64.MaxValue) return CreateLiteral((long)value, text);
+                if (value <= (ulong)int.MaxValue) return CreateLiteral((int)value, text);
+                if (value <= (ulong)uint.MaxValue) return CreateLiteral((uint)value, text);
+                if (value <= (ulong)long.MaxValue) return CreateLiteral((long)value, text);
                 return CreateLiteral(value, text);
             }
             else
             {
                 long value;
-                if (!Int64.TryParse(text, out value))
+                if (!long.TryParse(text, out value))
                     throw ParseError(Res.InvalidIntegerLiteral, text);
                 NextToken();
-                if (value >= Int32.MinValue && value <= Int32.MaxValue)
+                if (value >= int.MinValue && value <= int.MaxValue)
                     return CreateLiteral((int)value, text);
                 return CreateLiteral(value, text);
             }
@@ -1037,12 +1035,12 @@ namespace System.Linq.Dynamic
             if (last == 'F' || last == 'f')
             {
                 float f;
-                if (Single.TryParse(text.Substring(0, text.Length - 1), out f)) value = f;
+                if (float.TryParse(text.Substring(0, text.Length - 1), out f)) value = f;
             }
             else
             {
                 double d;
-                if (Double.TryParse(text, out d)) value = d;
+                if (double.TryParse(text, out d)) value = d;
             }
             if (value == null) throw ParseError(Res.InvalidRealLiteral, text);
             NextToken();
@@ -1636,7 +1634,7 @@ namespace System.Linq.Dynamic
                     if (literals.TryGetValue(ce, out text))
                     {
                         Type target = GetNonNullableType(type);
-                        Object value = null;
+                        object value = null;
                         switch (Type.GetTypeCode(ce.Type))
                         {
                             case TypeCode.Int32:
@@ -1988,7 +1986,7 @@ namespace System.Linq.Dynamic
 
         void NextToken()
         {
-            while (Char.IsWhiteSpace(ch)) NextChar();
+            while (char.IsWhiteSpace(ch)) NextChar();
             TokenId t;
             int tokenPos = textPos;
             switch (ch)
@@ -2136,22 +2134,22 @@ namespace System.Linq.Dynamic
                     t = TokenId.StringLiteral;
                     break;
                 default:
-                    if (Char.IsLetter(ch) || ch == '@' || ch == '_')
+                    if (char.IsLetter(ch) || ch == '@' || ch == '_')
                     {
                         do
                         {
                             NextChar();
-                        } while (Char.IsLetterOrDigit(ch) || ch == '_');
+                        } while (char.IsLetterOrDigit(ch) || ch == '_');
                         t = TokenId.Identifier;
                         break;
                     }
-                    if (Char.IsDigit(ch))
+                    if (char.IsDigit(ch))
                     {
                         t = TokenId.IntegerLiteral;
                         do
                         {
                             NextChar();
-                        } while (Char.IsDigit(ch));
+                        } while (char.IsDigit(ch));
                         if (ch == '.')
                         {
                             t = TokenId.RealLiteral;
@@ -2160,7 +2158,7 @@ namespace System.Linq.Dynamic
                             do
                             {
                                 NextChar();
-                            } while (Char.IsDigit(ch));
+                            } while (char.IsDigit(ch));
                         }
                         if (ch == 'E' || ch == 'e')
                         {
@@ -2171,7 +2169,7 @@ namespace System.Linq.Dynamic
                             do
                             {
                                 NextChar();
-                            } while (Char.IsDigit(ch));
+                            } while (char.IsDigit(ch));
                         }
                         if (ch == 'F' || ch == 'f') NextChar();
                         break;
@@ -2190,7 +2188,7 @@ namespace System.Linq.Dynamic
 
         bool TokenIdentifierIs(string id)
         {
-            return token.id == TokenId.Identifier && String.Equals(id, token.text, StringComparison.OrdinalIgnoreCase);
+            return token.id == TokenId.Identifier && string.Equals(id, token.text, StringComparison.OrdinalIgnoreCase);
         }
 
         string GetIdentifier()
@@ -2203,7 +2201,7 @@ namespace System.Linq.Dynamic
 
         void ValidateDigit()
         {
-            if (!Char.IsDigit(ch)) throw ParseError(textPos, Res.DigitExpected);
+            if (!char.IsDigit(ch)) throw ParseError(textPos, Res.DigitExpected);
         }
 
         void ValidateToken(TokenId t, string errorMessage)

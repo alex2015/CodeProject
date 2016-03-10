@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using NPA.Business.Entities;
-using NPA.Interfaces;
 using NPA.Business.Common;
+using NPA.Data.EntityFramework;
 
 namespace NPA.Business
 {
