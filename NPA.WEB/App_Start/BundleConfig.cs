@@ -43,7 +43,7 @@ namespace NPA.WEB
 
 
             bundles.Add(new ScriptBundle("~/bundles/shared").Include(
-                "~/Views/Shared/CodeProjectBootstrap.js",
+                "~/Views/Shared/NpaAngularJSBootStrap.js",
                 "~/Views/Shared/AjaxService.js",
                 "~/Views/Shared/AlertService.js",
                 "~/Views/Shared/DataGridService.js",
@@ -51,11 +51,11 @@ namespace NPA.WEB
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/routing-debug").Include(
-                "~/Views/Shared/CodeProjectRouting-debug.js"
+                "~/Views/Shared/NpaAngularJSRouting-debug.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/routing-production").Include(
-                "~/Views/Shared/CodeProjectRouting-production.js"
+                "~/Views/Shared/NpaAngularJSRouting-production.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/home").Include(

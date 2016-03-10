@@ -1014,9 +1014,9 @@
     <Content Include="Views\Products\ProductMaintenanceController.js" />
     <Content Include="Views\Shared\AjaxService.js" />
     <Content Include="Views\Shared\AlertService.js" />
-    <Content Include="Views\Shared\CodeProjectBootStrap.js" />
-    <Content Include="Views\Shared\CodeProjectRouting-debug.js" />
-    <Content Include="Views\Shared\CodeProjectRouting-production.js" />
+    <Content Include="Views\Shared\NpaAngularJSBootStrap.js" />
+    <Content Include="Views\Shared\NpaAngularJSRouting-debug.js" />
+    <Content Include="Views\Shared\NpaAngularJSRouting-production.js" />
     <Content Include="Views\Shared\DataGridService.js" />
     <Content Include="Views\Shared\MasterController.js" />
     <Content Include="Web.config">

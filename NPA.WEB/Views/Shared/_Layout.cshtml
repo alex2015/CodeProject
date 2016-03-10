@@ -4,9 +4,9 @@
     var version = typeof(MvcApplication).Assembly.GetName().Version.ToString();
     string baseUrl = System.Configuration.ConfigurationManager.AppSettings["BaseUrl"];
 
-    var codeProjectBundles = new List<string> {"home", "persons", "products"};
+    var npaBundles = new List<string> {"home", "persons", "products"};
 
-    var bundles = codeProjectBundles.Select(controller => new CustomBundle
+    var bundles = npaBundles.Select(controller => new CustomBundle
     {
         BundleName = controller, Path = BundleTable.Bundles.ResolveBundleUrl("~/bundles/" + controller), IsLoaded = false
     }).ToList();
