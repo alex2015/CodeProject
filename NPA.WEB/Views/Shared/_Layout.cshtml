@@ -45,7 +45,7 @@
     <base href="@baseUrl" />
 
 </head>
-<body ng-app="codeProject" ng-controller="masterController as vm" ng-init="vm.initializeController()">
+<body ng-app="npaAngularJS" ng-controller="masterController as vm" ng-init="vm.initializeController()">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -88,8 +88,8 @@
 
         (function () {
 
-            var codeProjectApplication = angular.module('codeProject');
-            codeProjectApplication.provider('applicationConfiguration', function () {
+            var npaAngularJSApplication = angular.module('npaAngularJS');
+            npaAngularJSApplication.provider('applicationConfiguration', function () {
                 var _version;
                 var _bundles;
                 return {
@@ -114,7 +114,7 @@
                 }
             });
 
-            codeProjectApplication.config(function (applicationConfigurationProvider) {
+            npaAngularJSApplication.config(function (applicationConfigurationProvider) {
                 applicationConfigurationProvider.setVersion('@version');
                 applicationConfigurationProvider.setBundles('@Html.Raw(bundleInformationJSON)');
             });       

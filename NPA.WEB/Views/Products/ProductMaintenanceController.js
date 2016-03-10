@@ -1,7 +1,7 @@
 ﻿
 console.log("product maintenance");
 
-angular.module("codeProject").register.controller('productMaintenanceController',
+angular.module("npaAngularJS").register.controller('productMaintenanceController',
     ['$routeParams', '$location', 'ajaxService', 'alertService',
     function ($routeParams, $location, ajaxService, alertService) {
 

@@ -1,7 +1,7 @@
 ﻿
 console.log("code project routing - production");
 
-angular.module("codeProject").config(['$routeProvider', '$locationProvider', 'applicationConfigurationProvider',
+angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider', 'applicationConfigurationProvider',
     function ($routeProvider, $locationProvider, applicationConfigurationProvider) {
 
         var baseSiteUrlPath = $("base").first().attr("href");

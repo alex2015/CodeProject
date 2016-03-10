@@ -3,7 +3,7 @@
 
 console.log("alert service");
 
-angular.module('codeProject').service('alertService', ['$rootScope', function ($rootScope) {
+angular.module('npaAngularJS').service('alertService', ['$rootScope', function ($rootScope) {
 
     $rootScope.alerts = [];
     $rootScope.messageBox = "";

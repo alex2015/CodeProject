@@ -1,6 +1,6 @@
 ﻿console.log("data grid service");
 
-angular.module('codeProject').service('dataGridService', [function () {
+angular.module('npaAngularJS').service('dataGridService', [function () {
 
     var dataGrid = new Object();
 

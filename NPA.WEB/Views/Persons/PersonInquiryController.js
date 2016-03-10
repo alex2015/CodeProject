@@ -1,7 +1,7 @@
 ﻿
 console.log("person inquiry");
 
-angular.module("codeProject").register.controller('personInquiryController', ['$scope', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
+angular.module("npaAngularJS").register.controller('personInquiryController', ['$scope', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
     function ($scope, $routeParams, $location, ajaxService, dataGridService, alertService) {
 
     "use strict";
