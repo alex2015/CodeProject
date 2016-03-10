@@ -242,24 +242,5 @@ namespace NPA.WEB.WebApiControllers
             var response = Request.CreateResponse(HttpStatusCode.OK, personActivateModel);
             return response;
         }
-
-
-        [Route("InitializeData")]
-        [HttpPost]
-        public HttpResponseMessage InitializeData(HttpRequestMessage request)
-        {
-            TransactionalInformation transaction;
-      
-            var personBusinessService = new PersonBusinessService(_personDataService);
-            personBusinessService.InitializeData(out transaction);
-            if (transaction.ReturnStatus == false)
-            {               
-                var responseError = Request.CreateResponse(HttpStatusCode.BadRequest, transaction);
-                return responseError;
-            }
-
-            var response = Request.CreateResponse(HttpStatusCode.OK, transaction);
-            return response;
-        }
     }
 }

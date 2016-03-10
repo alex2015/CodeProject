@@ -1008,8 +1008,6 @@
     <Content Include="Views\Persons\PersonMaintenanceController.js" />
     <Content Include="Views\Home\Index.html" />
     <Content Include="Views\Home\IndexController.js" />
-    <Content Include="Views\Home\InitializeData.html" />
-    <Content Include="Views\Home\InitializeDataController.js" />
     <Content Include="Views\Products\ProductInquiry.html" />
     <Content Include="Views\Products\ProductInquiryController.js" />
     <Content Include="Views\Products\ProductMaintenance.html" />

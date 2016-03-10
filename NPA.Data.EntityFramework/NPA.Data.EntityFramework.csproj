@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataServices\CustomerDataService.cs" />
+    <Compile Include="DataServices\PersonDataService.cs" />
     <Compile Include="DataServices\ProductDataService.cs" />
     <Compile Include="DynamicLibrary.cs" />
     <Compile Include="EntityFrameworkService.cs" />

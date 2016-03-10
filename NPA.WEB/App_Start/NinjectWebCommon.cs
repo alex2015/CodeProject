@@ -15,9 +15,6 @@ namespace NPA.WEB.App_Start
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
-        /// <summary>
-        /// Starts the application
-        /// </summary>
         public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
@@ -25,18 +22,11 @@ namespace NPA.WEB.App_Start
             bootstrapper.Initialize(CreateKernel);
         }
         
-        /// <summary>
-        /// Stops the application.
-        /// </summary>
         public static void Stop()
         {
             bootstrapper.ShutDown();
         }
         
-        /// <summary>
-        /// Creates the kernel that will manage your application.
-        /// </summary>
-        /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
@@ -56,15 +46,10 @@ namespace NPA.WEB.App_Start
             }
         }
 
-        /// <summary>
-        /// Load your modules or register your services here!
-        /// </summary>
-        /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<NPA.Interfaces.IPersonDataService>().To<NPA.Data.EntityFramework.PersonDataService>();
-            kernel.Bind<NPA.Interfaces.IProductDataService>().To<NPA.Data.EntityFramework.ProductDataService>();
-
+            kernel.Bind<Interfaces.IPersonDataService>().To<Data.EntityFramework.PersonDataService>();
+            kernel.Bind<Interfaces.IProductDataService>().To<Data.EntityFramework.ProductDataService>();
         }        
     }
 }

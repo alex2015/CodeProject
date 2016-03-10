@@ -12,7 +12,5 @@ namespace NPA.Interfaces
         void ActivatePerson(Person person, bool isActive);
         Person GetPerson(int personID);
         List<Person> GetPersons(int currentPageNumber, int pageSize, string sortExpression, string sortDirection, out int totalRows);
-        void InitializeData();
-        void LoadData();  
     }
 }

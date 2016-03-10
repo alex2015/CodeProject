@@ -230,38 +230,5 @@ namespace NPA.Business
                 _personDataService.CloseSession();
             }
         }
-
-        public void InitializeData(out TransactionalInformation transaction)
-        {
-            transaction = new TransactionalInformation();
-
-            try
-            {
-                _personDataService.CreateSession();
-                _personDataService.BeginTransaction();
-                _personDataService.InitializeData();
-                _personDataService.CommitTransaction(true);
-                _personDataService.CloseSession();
-
-                _personDataService.CreateSession();
-                _personDataService.BeginTransaction();
-                _personDataService.LoadData();
-                _personDataService.CommitTransaction(true);
-                _personDataService.CloseSession();
-
-                transaction.ReturnStatus = true;
-
-            }
-            catch (Exception ex)
-            {
-                string errorMessage = ex.Message;
-                transaction.ReturnMessage.Add(errorMessage);
-                transaction.ReturnStatus = false;
-            }
-            finally
-            {
-                _personDataService.CloseSession();
-            }           
-        }
     }
 }
