@@ -22,6 +22,7 @@
         <tr>
             <th></th>
             <th ng:repeat="tableHeader in vm.tableHeaders" style="text-decoration: underline" ng:class="vm.setSortIndicator(tableHeader.label)" ng:click="vm.changeSorting(tableHeader.label)">{{tableHeader.label}}</th>
+            <th>Delete</th>
         </tr>
 
         </thead>

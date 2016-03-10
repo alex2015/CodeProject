@@ -2,7 +2,7 @@
 using NPA.Business.Entities;
 using FluentValidation.Results;
 
-namespace NPA.Utilities
+namespace NPA.Business
 {
     public static class ValidationErrors
     {

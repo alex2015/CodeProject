@@ -33,9 +33,7 @@ namespace NPA.Data.EntityFramework
 
             totalRows = dbConnection.Persons.Count();
 
-            var persons = dbConnection.Persons.OrderBy(sortExpression).Skip((currentPageNumber - 1) * pageSize).Take(pageSize).ToList();
-
-            return persons;
+            return dbConnection.Persons.OrderBy(sortExpression).Skip((currentPageNumber - 1) * pageSize).Take(pageSize).ToList();
         }
 
         public void DeletePerson(Person person)

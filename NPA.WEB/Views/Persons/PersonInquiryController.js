@@ -23,7 +23,6 @@ angular.module("codeProject").register.controller('personInquiryController', ['$
         dataGridService.addHeader("Company Name", "CompanyName");
         dataGridService.addHeader("City", "City");
         dataGridService.addHeader("Region", "Region");
-        dataGridService.addHeader("Delete", "Delete");
 
         vm.tableHeaders = dataGridService.setTableHeaders();
         vm.defaultSort = dataGridService.setDefaultSort("Person ID", true);
