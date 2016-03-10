@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NPA.Business.Entities;
-using NPA.Business.Common;
+using NPA.Utilities;
 using NPA.Data.EntityFramework;
 
 namespace NPA.Business
@@ -126,7 +126,7 @@ namespace NPA.Business
                 persons = _personDataService.GetPersons(currentPageNumber, pageSize, sortExpression, sortDirection, out totalRows);
                 _personDataService.CloseSession();
 
-                transaction.TotalPages = Utilities.CalculateTotalPages(totalRows, pageSize);
+                transaction.TotalPages = Utility.CalculateTotalPages(totalRows, pageSize);
                 transaction.TotalRows = totalRows;
 
                 transaction.ReturnStatus = true;

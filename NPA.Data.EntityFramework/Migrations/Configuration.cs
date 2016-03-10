@@ -2,27 +2,15 @@ namespace NPA.Data.EntityFramework.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<NPA.Data.EntityFramework.CodeProjectDatabase>
+    internal sealed class Configuration : DbMigrationsConfiguration<CodeProjectDatabase>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(NPA.Data.EntityFramework.CodeProjectDatabase context)
+        protected override void Seed(CodeProjectDatabase context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{98065BD3-D182-4DF8-8CF0-908CA5F72A6D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NPA.Business.Common</RootNamespace>
-    <AssemblyName>NPA.Business.Common</AssemblyName>
+    <RootNamespace>NPA.Utilities</RootNamespace>
+    <AssemblyName>NPA.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utilities.cs" />
+    <Compile Include="Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationErrors.cs" />
   </ItemGroup>

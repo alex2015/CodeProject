@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace NPA.Business.Common
+namespace NPA.Utilities
 {
-    public static class Utilities
+    public static class Utility
     {
         public static int CalculateTotalPages(long numberOfRecords, int pageSize)
         {

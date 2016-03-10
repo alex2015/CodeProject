@@ -53,9 +53,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NPA.Business.Common\NPA.Business.Common.csproj">
+    <ProjectReference Include="..\NPA.Business.Common\NPA.Utilities.csproj">
       <Project>{98065bd3-d182-4df8-8cf0-908ca5f72a6d}</Project>
-      <Name>NPA.Business.Common</Name>
+      <Name>NPA.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\NPA.Business.Entities\NPA.Business.Entities.csproj">
       <Project>{7fc08037-8e74-4524-bf70-10eec84fa15f}</Project>

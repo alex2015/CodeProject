@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NPA.Business.Entities;
-using NPA.Business.Common;
+using NPA.Utilities;
 using NPA.Data.EntityFramework;
 
 namespace NPA.Business
@@ -121,7 +121,7 @@ namespace NPA.Business
                 products = _productDataService.GetProducts(currentPageNumber, pageSize, sortExpression, sortDirection, out totalRows);
                 _productDataService.CloseSession();
 
-                transaction.TotalPages = Utilities.CalculateTotalPages(totalRows, pageSize);
+                transaction.TotalPages = Utility.CalculateTotalPages(totalRows, pageSize);
                 transaction.TotalRows = totalRows;
 
                 transaction.ReturnStatus = true;
