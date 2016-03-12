@@ -35,12 +35,13 @@
                         Actions<span class="caret"></span>
                     </button>
                     <ul uib-dropdown-menu role="menu" aria-labelledby="single-button{{person.personID}}">
+                        <li role="menuitem"><a ng-href="Persons/PersonMaintenance/{{person.personID}}">Update</a></li>
                         <li role="menuitem"><a href="#" ng:click="vm.activatePerson(person)">{{person.isActive ? "DeActivate" : "Activate"}}</a></li>
                     </ul>
                 </div>
             </td>
 
-            <td style="width: 10%; white-space: nowrap"><a ng-href="Persons/PersonMaintenance/{{person.personID}}" style="cursor: pointer; text-decoration: underline; color: black">{{person.personID}}</a></td>
+            <td style="width: 10%; white-space: nowrap"><a href="#" ng:click="vm.viewPerson(person.personID)" style="cursor: pointer; text-decoration: underline; color: black">{{person.personID}}</a></td>
             <td style="width: 20%; white-space: nowrap"><div ng-bind="person.name"></div></td>
             <td style="width: 30%; white-space: nowrap"><div ng-bind="person.companyName"></div></td>
             <td style="width: 10%; white-space: nowrap"><div ng-bind="person.city"></div></td>

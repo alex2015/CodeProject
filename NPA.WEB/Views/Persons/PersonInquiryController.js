@@ -1,8 +1,8 @@
 ﻿
 console.log("person inquiry");
 
-angular.module("npaAngularJS").register.controller('personInquiryController', ['$scope', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
-    function ($scope, $routeParams, $location, ajaxService, dataGridService, alertService) {
+angular.module("npaAngularJS").register.controller('personInquiryController', ['$scope', '$uibModal', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
+    function ($scope, $uibModal, $routeParams, $location, ajaxService, dataGridService, alertService) {
 
     "use strict";
 
@@ -31,7 +31,7 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
         vm.sortExpression = "PersonID";
         vm.sortDirection = "DESC";
         vm.pageSize = 15;
-      
+
         this.executeInquiry();
     }
 
@@ -98,6 +98,41 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
         alertService.RenderErrorMessage(response.ReturnMessage);
     }
 
+    this.viewPerson = function (personID) {
+        var person = new Object();
+        person.personID = personID;
+        ajaxService.ajaxPost(person, "api/PersonService/GetPerson", this.viewPersonOnSuccess, this.viewPersonOnError);
+    }
+
+    this.viewPersonOnSuccess = function (response) {
+        vm.ViewPerson = new Object();
+        vm.ViewPerson.personID = response.personID;
+        vm.ViewPerson.companyName = response.companyName;
+        vm.ViewPerson.name = response.name;
+        vm.ViewPerson.contactTitle = response.contactTitle;
+        vm.ViewPerson.address = response.address;
+        vm.ViewPerson.city = response.city;
+        vm.ViewPerson.region = response.region;
+        vm.ViewPerson.country = response.country;
+        vm.ViewPerson.mobileNumber = response.mobileNumber;
+        vm.ViewPerson.imageUrl = response.imageUrl;
+
+        var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'Views/Persons/MyModalContent.html',
+            controller: 'modalInstanceController',
+            size: 'lg',
+            resolve: {
+                ViewPerson: function () {
+                    return vm.ViewPerson;
+                }
+            }
+        });
+    };
+
+    this.viewPersonOnError = function (response) {
+    };
+
     this.deletePerson = function (personID) {
         var inquiry = new Object();
         inquiry.personID = personID;
@@ -142,3 +177,10 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
         vm.alerts = alertService.returnAlerts();
     }
 }]);
+
+
+angular.module('npaAngularJS').register.controller('modalInstanceController', [
+    '$scope', '$uibModalInstance', 'ViewPerson', function ($scope, $uibModalInstance, ViewPerson) {
+        $scope.ViewPerson = ViewPerson;
+    }
+]);

@@ -34,7 +34,8 @@ namespace NPA.WEB
                 "~/Scripts/angular-ui/ui-bootstrap.min.js",
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
                 "~/Scripts/angular-ui.min.js",
-                "~/Scripts/angular-block-ui.js"
+                "~/Scripts/angular-block-ui.min.js",
+                "~/Scripts/angular-animate.min.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/ng-file-upload").Include(

@@ -1005,6 +1005,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Persons\PersonInquiry.html" />
     <Content Include="Views\Persons\PersonInquiryController.js" />
+    <Content Include="Views\Persons\MyModalContent.html" />
     <Content Include="Views\Persons\PersonMaintenance.html" />
     <Content Include="Views\Persons\PersonMaintenanceController.js" />
     <Content Include="Views\Home\Index.html" />
