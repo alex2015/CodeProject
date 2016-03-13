@@ -76,14 +76,8 @@
     </div>
 
 
-    @if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}?ver=" + @version + "\"></script>", "~/bundles/shared")
-    }
-    else
-    {
-        @Scripts.Render("~/bundles/shared")
-    }
+    @Scripts.Render("~/bundles/shared")
+
     <script>
 
         (function () {
@@ -123,14 +117,7 @@
 
     </script>
 
-    @if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}?ver=" + @version + "\"></script>", "~/bundles/routing-debug")
-    }
-    else
-    {
-        @Scripts.Render("~/bundles/routing-production")
-    }
+    @Scripts.Render("~/bundles/routing")
 
     @RenderSection("scripts", false)
 

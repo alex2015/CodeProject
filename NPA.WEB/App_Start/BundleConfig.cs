@@ -51,12 +51,8 @@ namespace NPA.WEB
                 "~/Views/Shared/MasterController.js"
                 ));
 
-            bundles.Add(new ScriptBundle("~/bundles/routing-debug").Include(
-                "~/Views/Shared/NpaAngularJSRouting-debug.js"
-                ));
-
-            bundles.Add(new ScriptBundle("~/bundles/routing-production").Include(
-                "~/Views/Shared/NpaAngularJSRouting-production.js"
+            bundles.Add(new ScriptBundle("~/bundles/routing").Include(
+                "~/Views/Shared/NpaAngularJSRouting.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
