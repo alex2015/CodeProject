@@ -1,19 +1,6 @@
 ﻿@using NPA.WEB.Models
 @{
-
-    var version = typeof(MvcApplication).Assembly.GetName().Version.ToString();
     string baseUrl = System.Configuration.ConfigurationManager.AppSettings["BaseUrl"];
-
-    var npaBundles = new List<string> {"home", "persons", "products"};
-
-    var bundles = npaBundles.Select(controller => new CustomBundle
-    {
-        BundleName = controller, Path = BundleTable.Bundles.ResolveBundleUrl("~/bundles/" + controller), IsLoaded = false
-    }).ToList();
-
-    var bundleInformation = new BundleInformation {Bundles = bundles};
-    string bundleInformationJSON = Newtonsoft.Json.JsonConvert.SerializeObject(bundleInformation, Newtonsoft.Json.Formatting.None);
-
 }
 
 <!DOCTYPE html>
@@ -36,8 +23,6 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    
-   
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/ng-file-upload")
  
@@ -77,46 +62,6 @@
 
 
     @Scripts.Render("~/bundles/shared")
-
-    <script>
-
-        (function () {
-
-            var npaAngularJSApplication = angular.module('npaAngularJS');
-            npaAngularJSApplication.provider('applicationConfiguration', function () {
-                var _version;
-                var _bundles;
-                return {
-                    setVersion: function (version) {
-                        _version = version;
-                    },
-                    setBundles: function (bundles) {
-                        _bundles = bundles;
-                    },
-                    getVersion: function () {
-                        return _version;
-                    },
-                    getBundles: function () {
-                        return _bundles;
-                    },
-                    $get: function () {
-                        return {
-                            version: _version,
-                            bundles: _bundles
-                        }
-                    }
-                }
-            });
-
-            npaAngularJSApplication.config(function (applicationConfigurationProvider) {
-                applicationConfigurationProvider.setVersion('@version');
-                applicationConfigurationProvider.setBundles('@Html.Raw(bundleInformationJSON)');
-            });       
-
-        })();
-
-    </script>
-
     @Scripts.Render("~/bundles/routing")
 
     @RenderSection("scripts", false)

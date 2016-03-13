@@ -1,19 +1,14 @@
 ﻿
-console.log("code project routing - debug");
+console.log("code project routing");
 
-angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider', 'applicationConfigurationProvider',
-    function ($routeProvider, $locationProvider, applicationConfigurationProvider) {
-
-    this.getApplicationVersion = function () {
-        var applicationVersion = applicationConfigurationProvider.getVersion();
-        return applicationVersion;
-    }
+angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider',
+    function ($routeProvider, $locationProvider) {
 
     var baseSiteUrlPath = $("base").first().attr("href");
    
     $routeProvider.when('/:section/:tree',
     {
-        templateUrl: function (rp) { return baseSiteUrlPath + 'views/' + rp.section + '/' + rp.tree + '.html?v=' + this.getApplicationVersion(); },
+        templateUrl: function (rp) { return baseSiteUrlPath + 'views/' + rp.section + '/' + rp.tree + '.html' },
 
         resolve: {
 
@@ -23,7 +18,7 @@ angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider', 'a
                 var directory = path[1];
                 var controllerName = path[2];
                
-                var controllerToLoad = "Views/" + directory + "/" + controllerName + "Controller.js?v=" + this.getApplicationVersion();
+                var controllerToLoad = "Views/" + directory + "/" + controllerName + "Controller.js";
 
                 var deferred = $q.defer();
                 require([controllerToLoad], function () {
@@ -42,7 +37,7 @@ angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider', 'a
 
     $routeProvider.when('/:section/:tree/:id',
     {
-        templateUrl: function (rp) { return baseSiteUrlPath + 'views/' + rp.section + '/' + rp.tree + '.html?v=' + this.getApplicationVersion(); },
+        templateUrl: function (rp) { return baseSiteUrlPath + 'views/' + rp.section + '/' + rp.tree + '.html' },
 
         resolve: {
 
@@ -52,7 +47,7 @@ angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider', 'a
                 var directory = path[1];
                 var controllerName = path[2];
 
-                var controllerToLoad = "Views/" + directory + "/" + controllerName + "Controller.js?v=" + this.getApplicationVersion();
+                var controllerToLoad = "Views/" + directory + "/" + controllerName + "Controller.js";
 
                 var deferred = $q.defer();
                 require([controllerToLoad], function () {
@@ -71,13 +66,13 @@ angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider', 'a
     $routeProvider.when('/',
     {
 
-        templateUrl: function (rp) { return baseSiteUrlPath + 'views/Home/Index.html?v=' + this.getApplicationVersion(); },
+        templateUrl: function (rp) { return baseSiteUrlPath + 'views/Home/Index.html'; },
 
         resolve: {
 
             load: ['$q', '$rootScope', '$location', function ($q, $rootScope, $location) {
 
-                var controllerToLoad = "Views/Home/IndexController.js?v=" + this.getApplicationVersion();
+                var controllerToLoad = "Views/Home/IndexController.js";
 
                 var deferred = $q.defer();
                 require([controllerToLoad], function () {
