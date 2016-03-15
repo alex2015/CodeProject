@@ -19,14 +19,6 @@ angular.module("npaAngularJS").register.controller('personMaintenanceController'
 
             if (personID == "") {
                 vm.personID = "0";
-                vm.companyName = "Microsoft Corporation";
-                vm.name = "William Gates";
-                vm.contactTitle = "Founder & CEO";
-                vm.address = "One Microsoft Way";
-                vm.city = "Redmond";
-                vm.region = "WA";
-                vm.country = "USA";
-                vm.mobileNumber = "+71234567890";
             } else {
                 vm.personID = personID;
                 var person = new Object();
@@ -84,11 +76,7 @@ angular.module("npaAngularJS").register.controller('personMaintenanceController'
         }
 
         this.createPersonOnSuccess = function(response) {
-            vm.clearValidationErrors();
-            alertService.renderSuccessMessage(response.returnMessage);
-            vm.messageBox = alertService.returnFormattedMessage();
-            vm.alerts = alertService.returnAlerts();
-            vm.personID = response.personID;
+            $location.path('/Persons/PersonInquiry');
         }
 
         this.createPersonOnError = function(response) {
@@ -100,12 +88,7 @@ angular.module("npaAngularJS").register.controller('personMaintenanceController'
         }
 
         this.updatePersonOnSuccess = function(response) {
-            vm.clearValidationErrors();
-            alertService.renderSuccessMessage(response.returnMessage);
-            vm.messageBox = alertService.returnFormattedMessage();
-            vm.alerts = alertService.returnAlerts();
-
-            vm.initializeController();
+            $location.path('/Persons/PersonInquiry');
         }
 
         this.updatePersonOnError = function(response) {

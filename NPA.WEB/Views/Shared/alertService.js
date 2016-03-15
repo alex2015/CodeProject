@@ -1,7 +1,4 @@
-﻿
-//alert("alert service");
-
-console.log("alert service");
+﻿console.log("alert service");
 
 angular.module('npaAngularJS').service('alertService', ['$rootScope', function ($rootScope) {
 
