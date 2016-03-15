@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerBusinessRules.cs" />
-    <Compile Include="CustomerBusinessService.cs" />
-    <Compile Include="ProductBusinessRules.cs" />
-    <Compile Include="ProductBusinessService.cs" />
+    <Compile Include="PersonBusinessRules.cs" />
+    <Compile Include="PersonBusinessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationErrors.cs" />
   </ItemGroup>

@@ -119,7 +119,7 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
 
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: 'Views/Persons/MyModalContent.html',
+            templateUrl: 'Views/Persons/PersonView.html',
             controller: 'modalInstanceController',
             size: 'lg',
             resolve: {

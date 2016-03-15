@@ -64,12 +64,6 @@ namespace NPA.WEB
                 "~/Views/Persons/PersonMaintenanceController.js",
                 "~/Views/Persons/PersonInquiryController.js"
                 ));
-
-
-            bundles.Add(new ScriptBundle("~/bundles/products").Include(
-                "~/Views/Products/ProductMaintenanceController.js",
-                "~/Views/Products/ProductInquiryController.js"
-                ));
         }
     }
 }

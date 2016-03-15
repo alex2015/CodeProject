@@ -40,13 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataServices\PersonDataService.cs" />
-    <Compile Include="DataServices\ProductDataService.cs" />
     <Compile Include="DynamicLibrary.cs" />
     <Compile Include="EntityFrameworkService.cs" />
     <Compile Include="AngularJSDatabase.cs" />
     <Compile Include="Interfaces\IDataRepository.cs" />
     <Compile Include="Interfaces\IPersonDataService.cs" />
-    <Compile Include="Interfaces\IProductDataService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

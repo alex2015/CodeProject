@@ -150,10 +150,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonViewModel.cs" />
-    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApiControllers\PersonServiceController.cs" />
-    <Compile Include="WebApiControllers\ProductServiceController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular-block-ui.css" />
@@ -1004,15 +1002,11 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Persons\PersonInquiry.html" />
     <Content Include="Views\Persons\PersonInquiryController.js" />
-    <Content Include="Views\Persons\MyModalContent.html" />
+    <Content Include="Views\Persons\PersonView.html" />
     <Content Include="Views\Persons\PersonMaintenance.html" />
     <Content Include="Views\Persons\PersonMaintenanceController.js" />
     <Content Include="Views\Home\Index.html" />
     <Content Include="Views\Home\IndexController.js" />
-    <Content Include="Views\Products\ProductInquiry.html" />
-    <Content Include="Views\Products\ProductInquiryController.js" />
-    <Content Include="Views\Products\ProductMaintenance.html" />
-    <Content Include="Views\Products\ProductMaintenanceController.js" />
     <Content Include="Views\Shared\AjaxService.js" />
     <Content Include="Views\Shared\AlertService.js" />
     <Content Include="Views\Shared\NpaAngularJSBootStrap.js" />
