@@ -1003,8 +1003,8 @@
     <Content Include="Views\Persons\PersonInquiry.html" />
     <Content Include="Views\Persons\PersonInquiryController.js" />
     <Content Include="Views\Persons\PersonView.html" />
-    <Content Include="Views\Persons\PersonMaintenance.html" />
-    <Content Include="Views\Persons\PersonMaintenanceController.js" />
+    <Content Include="Views\Persons\PersonHandling.html" />
+    <Content Include="Views\Persons\PersonHandlingController.js" />
     <Content Include="Views\Home\Index.html" />
     <Content Include="Views\Home\IndexController.js" />
     <Content Include="Views\Shared\AjaxService.js" />

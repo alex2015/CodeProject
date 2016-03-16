@@ -1,7 +1,7 @@
 ﻿
-console.log("person maintenance");
+console.log("person handling");
 
-angular.module("npaAngularJS").register.controller('personMaintenanceController', ['$scope', 'Upload', '$routeParams', '$location', 'ajaxService', 'alertService',
+angular.module("npaAngularJS").register.controller('personHandlingController', ['$scope', 'Upload', '$routeParams', '$location', 'ajaxService', 'alertService',
     function ($scope, Upload, $routeParams, $location, ajaxService, alertService) {
 
         "use strict";
@@ -10,7 +10,7 @@ angular.module("npaAngularJS").register.controller('personMaintenanceController'
 
         this.initializeController = function() {
 
-            vm.title = "Person Maintenance";
+            vm.title = "Person Handling";
 
             vm.messageBox = "";
             vm.alerts = [];
@@ -18,8 +18,10 @@ angular.module("npaAngularJS").register.controller('personMaintenanceController'
             var personID = ($routeParams.id || "");
 
             if (personID == "") {
+                vm.title = "Create Person";
                 vm.personID = "0";
             } else {
+                vm.title = "Update Person";
                 vm.personID = personID;
                 var person = new Object();
                 person.personID = personID;
