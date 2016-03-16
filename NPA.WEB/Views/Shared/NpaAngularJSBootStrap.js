@@ -1,4 +1,4 @@
-﻿console.log("Code Project Bootstrap");
+﻿console.log("NpaAngularJS Bootstrap START");
 
 (function () {
 
@@ -14,7 +14,7 @@
 
 })();
 
-console.log("Code Project Bootstrap FINISHED 2");
+console.log("NpaAngularJS Bootstrap FINISHED");
 
 
 

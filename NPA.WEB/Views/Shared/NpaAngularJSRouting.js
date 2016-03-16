@@ -1,5 +1,5 @@
 ﻿
-console.log("code project routing");
+console.log("npaAngularJS routing");
 
 angular.module("npaAngularJS").config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
