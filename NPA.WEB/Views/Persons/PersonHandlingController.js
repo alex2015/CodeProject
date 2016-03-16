@@ -78,7 +78,7 @@ angular.module("npaAngularJS").register.controller('personHandlingController', [
         }
 
         this.createPersonOnSuccess = function(response) {
-            $location.path('/Persons/PersonInquiry');
+            $location.path('/Persons/PersonRegistry');
         }
 
         this.createPersonOnError = function(response) {
@@ -90,7 +90,7 @@ angular.module("npaAngularJS").register.controller('personHandlingController', [
         }
 
         this.updatePersonOnSuccess = function(response) {
-            $location.path('/Persons/PersonInquiry');
+            $location.path('/Persons/PersonRegistry');
         }
 
         this.updatePersonOnError = function(response) {

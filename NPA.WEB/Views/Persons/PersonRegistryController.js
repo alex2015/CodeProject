@@ -1,7 +1,7 @@
 ﻿
-console.log("person inquiry");
+console.log("person registry");
 
-angular.module("npaAngularJS").register.controller('personInquiryController', ['$scope', '$uibModal', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
+angular.module("npaAngularJS").register.controller('personRegistryController', ['$scope', '$uibModal', '$routeParams', '$location', 'ajaxService', 'dataGridService', 'alertService',
     function ($scope, $uibModal, $routeParams, $location, ajaxService, dataGridService, alertService) {
 
     "use strict";
@@ -32,7 +32,7 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
         vm.sortDirection = "DESC";
         vm.pageSize = 15;
 
-        this.executeInquiry();
+        this.executeRegistry();
     }
 
     this.closeAlert = function (index) {
@@ -48,7 +48,7 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
         vm.sortExpression = dataGridService.getSortExpression();
         vm.currentPageNumber = 1;
 
-        vm.executeInquiry();
+        vm.executeRegistry();
 
     };
 
@@ -57,24 +57,24 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
     };
 
     this.pageChanged = function () {
-        this.executeInquiry();
+        this.executeRegistry();
     }
 
-    this.executeInquiry = function () {
-        var inquiry = vm.prepareSearch();
-        ajaxService.ajaxPost(inquiry, "api/PersonService/GetPersons", this.getPersonsOnSuccess, this.getPersonsOnError);
+    this.executeRegistry = function () {
+        var registry = vm.prepareSearch();
+        ajaxService.ajaxPost(registry, "api/PersonService/GetPersons", this.getPersonsOnSuccess, this.getPersonsOnError);
     }
 
     this.prepareSearch = function () {
 
-        var inquiry = new Object();
+        var registry = new Object();
       
-        inquiry.currentPageNumber = vm.currentPageNumber;
-        inquiry.sortExpression = vm.sortExpression;
-        inquiry.sortDirection = vm.sortDirection;
-        inquiry.pageSize = vm.pageSize;
+        registry.currentPageNumber = vm.currentPageNumber;
+        registry.sortExpression = vm.sortExpression;
+        registry.sortDirection = vm.sortDirection;
+        registry.pageSize = vm.pageSize;
         
-        return inquiry;
+        return registry;
 
     }
 
@@ -134,9 +134,9 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
     };
 
     this.deletePerson = function (personID) {
-        var inquiry = new Object();
-        inquiry.personID = personID;
-        ajaxService.ajaxPost(inquiry, "api/PersonService/DeletePerson", this.deletePersonOnSuccess, this.deletePersonOnError);
+        var registry = new Object();
+        registry.personID = personID;
+        ajaxService.ajaxPost(registry, "api/PersonService/DeletePerson", this.deletePersonOnSuccess, this.deletePersonOnError);
     }
 
     this.deletePersonOnSuccess = function (response) {
@@ -148,11 +148,11 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
     }
 
     this.activatePerson = function (person) {
-        var inquiry = new Object();
-        inquiry.personID = person.personID;
-        inquiry.IsActive = !person.isActive;
+        var registry = new Object();
+        registry.personID = person.personID;
+        registry.IsActive = !person.isActive;
 
-        ajaxService.ajaxPost(inquiry, "api/PersonService/ActivatePerson", this.activatePersonOnSuccess, this.activatePersonOnError);
+        ajaxService.ajaxPost(registry, "api/PersonService/ActivatePerson", this.activatePersonOnSuccess, this.activatePersonOnError);
     }
 
     this.activatePersonOnSuccess = function (response) {
@@ -167,7 +167,7 @@ angular.module("npaAngularJS").register.controller('personInquiryController', ['
         alertService.renderSuccessMessage(response.returnMessage);
         vm.messageBox = alertService.returnFormattedMessage();
         vm.alerts = alertService.returnAlerts();
-        vm.executeInquiry();
+        vm.executeRegistry();
     }
 
 
