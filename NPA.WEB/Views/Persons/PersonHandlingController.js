@@ -68,7 +68,12 @@ angular.module("npaAngularJS").register.controller('personHandlingController', [
 
             Upload.base64DataUrl(vm.picFile).then(function (url) {
 
-                person.ImageUrl = url;
+                if (url) {
+                    person.imageUrl = url;
+                } else {
+                    person.imageUrl = vm.imageUrl;
+                }
+
                 if (person.personID == "0") {
                     ajaxService.ajaxPost(person, "api/PersonService/CreatePerson", vm.createPersonOnSuccess, vm.createPersonOnError);
                 } else {
