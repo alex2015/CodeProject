@@ -22,7 +22,6 @@ angular.module("npaAngularJS").register.controller('personRegistryController', [
         dataGridService.addHeader("Name", "Name");
         dataGridService.addHeader("Company Name", "CompanyName");
         dataGridService.addHeader("City", "City");
-        dataGridService.addHeader("Region", "Region");
 
         vm.tableHeaders = dataGridService.setTableHeaders();
         vm.defaultSort = dataGridService.setDefaultSort("Person ID", true);
@@ -109,11 +108,9 @@ angular.module("npaAngularJS").register.controller('personRegistryController', [
         vm.ViewPerson.personID = response.personID;
         vm.ViewPerson.companyName = response.companyName;
         vm.ViewPerson.name = response.name;
-        vm.ViewPerson.contactTitle = response.contactTitle;
-        vm.ViewPerson.address = response.address;
-        vm.ViewPerson.city = response.city;
-        vm.ViewPerson.region = response.region;
         vm.ViewPerson.country = response.country;
+        vm.ViewPerson.city = response.city;
+        vm.ViewPerson.address = response.address;
         vm.ViewPerson.mobileNumber = response.mobileNumber;
         vm.ViewPerson.imageUrl = response.imageUrl;
 

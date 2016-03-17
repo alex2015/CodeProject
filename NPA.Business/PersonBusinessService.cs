@@ -83,11 +83,9 @@ namespace NPA.Business
 
                 existingPerson.CompanyName = person.CompanyName;
                 existingPerson.Name = person.Name;
-                existingPerson.ContactTitle = person.ContactTitle;
-                existingPerson.Address = person.Address;
-                existingPerson.City = person.City;
-                existingPerson.Region = person.Region;
                 existingPerson.Country = person.Country;
+                existingPerson.City = person.City;
+                existingPerson.Address = person.Address;
                 existingPerson.MobileNumber = person.MobileNumber;
                 existingPerson.Image = person.Image;
 

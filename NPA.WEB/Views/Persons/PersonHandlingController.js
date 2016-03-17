@@ -39,11 +39,9 @@ angular.module("npaAngularJS").register.controller('personHandlingController', [
             vm.personID = response.personID;
             vm.companyName = response.companyName;
             vm.name = response.name;
-            vm.contactTitle = response.contactTitle;
-            vm.address = response.address;
-            vm.city = response.city;
-            vm.region = response.region;
             vm.country = response.country;
+            vm.city = response.city;
+            vm.address = response.address;
             vm.mobileNumber = response.mobileNumber;
             vm.imageUrl = response.imageUrl;
         }
@@ -59,11 +57,9 @@ angular.module("npaAngularJS").register.controller('personHandlingController', [
             person.personID = vm.personID;
             person.companyName = vm.companyName;
             person.name = vm.name;
-            person.contactTitle = vm.contactTitle;
-            person.address = vm.address;
-            person.city = vm.city;
-            person.region = vm.region;
             person.country = vm.country;
+            person.city = vm.city;
+            person.address = vm.address;
             person.mobileNumber = vm.mobileNumber;
 
             Upload.base64DataUrl(vm.picFile).then(function (url) {

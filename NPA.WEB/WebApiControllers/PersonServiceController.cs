@@ -27,11 +27,9 @@ namespace NPA.WEB.WebApiControllers
             {
                 CompanyName = personViewModel.CompanyName,
                 Name = personViewModel.Name,
-                ContactTitle = personViewModel.ContactTitle,
-                Address = personViewModel.Address,
-                City = personViewModel.City,
-                Region = personViewModel.Region,
                 Country = personViewModel.Country,
+                City = personViewModel.City,
+                Address = personViewModel.Address,
                 MobileNumber = personViewModel.MobileNumber
             };
 
@@ -73,11 +71,9 @@ namespace NPA.WEB.WebApiControllers
                 PersonID = personViewModel.PersonID,
                 CompanyName = personViewModel.CompanyName,
                 Name = personViewModel.Name,
-                ContactTitle = personViewModel.ContactTitle,
-                Address = personViewModel.Address,
-                City = personViewModel.City,
-                Region = personViewModel.Region,
                 Country = personViewModel.Country,
+                City = personViewModel.City,
+                Address = personViewModel.Address,
                 MobileNumber = personViewModel.MobileNumber
             };
 
@@ -168,11 +164,9 @@ namespace NPA.WEB.WebApiControllers
             personViewModel.PersonID = person.PersonID;
             personViewModel.CompanyName = person.CompanyName;
             personViewModel.Name = person.Name;
-            personViewModel.ContactTitle = person.ContactTitle;
-            personViewModel.Address = person.Address;
-            personViewModel.City = person.City;
-            personViewModel.Region = person.Region;
             personViewModel.Country = person.Country;
+            personViewModel.City = person.City;
+            personViewModel.Address = person.Address;
             personViewModel.MobileNumber = person.MobileNumber;
 
             if (person.Image != null)
